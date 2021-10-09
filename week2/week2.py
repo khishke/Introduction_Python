@@ -24,3 +24,16 @@ datetime.datetime.strptime('2017/01/22', "%Y/%m/%d")
 
 today.strftime("%Y/%m/%d") # convert datetime to string (strptime)
 
+
+my_list_str = ['bat','bold','suren']
+my_list_str[2]
+my_list_str[:1]
+my_list_str[:2]
+my_list_str[1:]
+my_list_str[::-1]
+my_list_str[::-2]
+my_list_str[-1]
+my_list_str[-2]
+
+my_list_num = [15, 15.2, 4.7]
+type(my_list_num)
