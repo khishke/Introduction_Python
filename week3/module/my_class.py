@@ -7,18 +7,18 @@ class Hotel:
         self.nGuest = nGuest # instance variables
         self.nRoom = nRoom
         self.nHall = nHall
-        self.__hidVar = 5
-        
+        self.__hidVar = 5 # private
+
     def getInfo(self):
-        return self.nGuest
+        return self.nGuest*1000
     
     def setGuest(self, nGuest):
         self.nGuest = nGuest
 
-    def setGuest(self, nRoom):
+    def setRoom(self, nRoom):
         self.nRoom = nRoom
 
-    def setGuest(self, nHall):
+    def setHall(self, nHall):
        self.nHall = nHall
    
     def dispHid(self):
@@ -29,6 +29,5 @@ class bigHotel(Hotel):
     
     def __init__(self):
         # super().__init__(1500,1000,100)
-        Hotel.__init__(self,1500,1000,100)
-
-       
+        Hotel.__init__(self, 1500, 1000, 100)
+        
