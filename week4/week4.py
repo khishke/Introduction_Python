@@ -1,5 +1,4 @@
 import os
-import pandas as pd
 
 main_dir = r"C:\Users\sugarkhuu\Documents\python\Python_Introduction\week4"
 os.chdir(main_dir)
@@ -8,26 +7,30 @@ os.chdir(main_dir)
 import glob
 
 ext = 'pdf'
-for filepath in glob.iglob('*.' + ext):
+for filepath in glob.glob('*.' + ext):
     print(filepath)
     
+glob.glob('*.pdf')
+glob.glob('*.csv')
+glob.glob('khan*.pdf')
+glob.glob('*k*.pdf')
+
 
 
 # EXCEL
-
-xlsx = pd.ExcelFile('data.xlsx')
+import pandas as pd
+xlsx = pd.ExcelFile('data1.xlsx')
 xlsx.sheet_names
 df = xlsx.parse("Sheet1")
 df
 
 
 # openpyxl
-from openpyxl import Workbook
 from openpyxl import load_workbook
-import json
+
 
 # read
-wb = load_workbook(filename="data.xlsx")
+wb = load_workbook("data.xlsx")
 print(wb.sheetnames)     
 ws = wb["double"]        # activate sheet "double" as ws
 print(ws.title)          # sheet name
@@ -46,12 +49,22 @@ for value in ws.iter_rows(min_row=1,
                              values_only=True): # values_only=True
     print(value)
 
+for value in ws.iter_cols(min_row=1,
+                             max_row=2,
+                             min_col=1,
+                             max_col=3,
+                             values_only=True): # values_only=True
+    print(value)
+
 # rows, columns
 for row in ws.rows:
-    print(row) # row[1].value
+    # print(row) # row[1].value
+    print(row[1].value)
 
 
+# restore and dump - database
 # dumping to json
+import json
 products = {}
 
 # Using the values_only because you want to return the cells' values
@@ -67,24 +80,25 @@ for row in ws.iter_rows(min_row=2,
     }
     products[product_id] = product
 
-# Using json here to be able to format the output for displaying later
-print(json.dumps(products))
+with open('data.json', 'w') as myfile:
+    json.dump(products, myfile, sort_keys=True, indent=4) # 
 
-with open('data.json', 'w') as file:
-    json.dump(products, file, sort_keys=True, indent=4)
 
 # loop through cell    
 for cell in ws[1]:
     print(cell.value)
 
+# ws.max_row
+# ws.max_column
+
 
 # write
-
+from openpyxl import Workbook
 wb = Workbook() # instantiate a workbook
 ws = wb.active  # select first sheet of wb as sheet
 
-ws["A1"] = "hello"
-ws["B1"] = "world!"
+ws["A1"] = "11 sar"
+ws["B1"] = "good"
 
 wb.save(filename="hello_world.xlsx") 
 
@@ -96,13 +110,13 @@ ws = wb['Sheet']
 cell = ws["A1"]
 cell.value = "hey"
 
-def print_rows():
-    for row in ws.iter_rows(values_only=True):
-        print(row)
-        
-print_rows()
+wb.save(filename="hello_world.xlsx")
+
+wb = Workbook() # instantiate a workbook
+wb.save(filename="hello_world.xlsx")
 
 
+wb = Workbook() # instantiate a workbook
 fs = wb.create_sheet("firstSheet",index=None)
 wb.save(filename="hello_world.xlsx")
 
@@ -142,29 +156,27 @@ age_col  = 5
 ws.cell(last_row+1,age_col).value = '=AVERAGE(E2:E' + str(last_row) + ')'
 wb.save(filename="data.xlsx")
 
-ws.sheet_state = 'hidden'
-wb.save(filename="data.xlsx")
 
 
-# with pandas
+# with pandas, multiple sheets
 
-fileName = "C:/Users/sugarkhuu/Documents/python/repo/Introduction_Python/week2/data.xlsx"
 
-xl = pd.ExcelFile(fileName)
+xl = pd.ExcelFile("data.xlsx")
 df = xl.parse('Sheet1')
-
-writer = pd.ExcelWriter('example.xlsx', engine='xlsxwriter')
-yourData.to_excel(writer, 'Sheet1') # Multiple sheets
-
-
 with pd.ExcelWriter('multiplesheet.xlsx', engine='xlsxwriter') as writer:
-    df.to_excel(writer, sheet_name='Sheet')
-    df2.to_excel(writer, sheet_name='Sheet2')
-    df3.to_excel(writer, sheet_name='Sheet3')
+    df.to_excel(writer, sheet_name='Sheet1')
+    df.to_excel(writer, sheet_name='Sheet2')
+    df.to_excel(writer, sheet_name='Sheet3')
 writer.save()
 
 
-# https://realpython.com/openpyxl-excel-spreadsheets-python/
+
+# writer = pd.ExcelWriter('example.xlsx', engine='xlsxwriter')
+# df.to_excel(writer, 'Sheet1') # Multiple sheets
+
+
+
+# Main source - https://realpython.com/openpyxl-excel-spreadsheets-python/
 # https://xlsxwriter.readthedocs.io/
 # https://www.datacamp.com/community/tutorials/python-excel-tutorial
 # https://www.dataquest.io/blog/excel-and-pandas/
@@ -189,13 +201,13 @@ with open('data.csv', 'a', newline='') as file:
 
 csv_rowlist = [["14", "Saran", "Khurel"], ["15", "Amar", "Khand"],
                ["16", "Tuvshin", "Tulga"]]
-with open('data.csv', 'a') as file:
+with open('data.csv', 'a', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(csv_rowlist)
     
 
 
-with open('data_dict.csv', 'a', newline='') as file:
+with open('data_dict.csv', 'w', newline='') as file:
     fieldnames = ['id', 'firstName']
     writer = csv.DictWriter(file, fieldnames=fieldnames)
 
@@ -204,15 +216,16 @@ with open('data_dict.csv', 'a', newline='') as file:
     writer.writerow({'id': '18', 'firstName': 'Ochir'})
     
     
-    
+
 
 # pandas works
 
 
 # PDF
 
-import PyPDF2
+import PyPDF2 # pip install PyPDF2
 
+# read
 anna = PyPDF2.PdfFileReader('anna_karenina.pdf')
 nPages = anna.getNumPages()
 docInfo  = anna.documentInfo
@@ -224,18 +237,20 @@ page_content = page.extractText()
 print(page_content.encode('utf-8'))
 
 
+# write
 from PyPDF2 import PdfFileWriter
 pdf_writer = PdfFileWriter()
 
 page = pdf_writer.addBlankPage(width=72, height=72)
 
-pdf_writer.write('output.pdf')
+# pdf_writer.write(str('output.pdf'))
 
 with open('output.pdf','wb') as output_file:
     pdf_writer.write(output_file)
 
 
 
+# slice
 input_pdf = PyPDF2.PdfFileReader('anna_karenina_long.pdf')
 pdf_writer = PyPDF2.PdfFileWriter()
 for n in range(1, 4):
@@ -245,7 +260,7 @@ for n in range(1, 4):
 with open('anna_2_4.pdf','wb') as output_file:
     pdf_writer.write(output_file)
    
-    
+
    
 input_pdf = PyPDF2.PdfFileReader('khanbank.pdf')
 pdf_writer = PyPDF2.PdfFileWriter()
@@ -276,13 +291,16 @@ import fpdf #pip3 intall fpdf
 pdf = fpdf.FPDF(format='letter') #pdf format
 pdf.add_page() #create new page
 pdf.set_font("Arial", size=12) # font and textsize
-pdf.cell(200, 10, txt="Happy families", ln=1, align="L")
-pdf.cell(200, 10, txt="are all alike;", ln=2, align="L")
-pdf.cell(200, 10, txt="every unhappy family", ln=3, align="L")
-pdf.cell(200, 10, txt="is unhappy", ln=4, align="R")
-pdf.cell(200, 10, txt="in its own way.", ln=0, align="L")
-pdf.output("test.pdf")
+pdf.cell(40, 2, txt="Happy families", ln=0, align="L")
+pdf.cell(100, 2, txt="are all alike;", ln=2, align="L")
+pdf.cell(200, 10, txt="every unhappy family", ln=2, align="L")
+pdf.output("test1.pdf")
 
+# pdf.cell(200, 10, txt="is unhappy", ln=0, align="R")
+# pdf.cell(200, 10, txt="in its own way.", ln=0, align="L")
+# pdf.cell(200, 10, txt="haha.", ln=1, align="L")
+
+# ln 0,1,2
 
 # pip install reportlab
 from reportlab.lib.colors import blue
@@ -372,14 +390,9 @@ for para in document.paragraphs:
 
 
 
-
-# markdown 
-
-
-
-
-
 # Conclusion
+# https://www.programiz.com/python-programming/methods/built-in/open
+
 
 f = open("anna.txt")   
 
@@ -395,7 +408,7 @@ finally:
    f.close()
    
    
-with open("anna.txt",'a',encoding = 'utf-8') as f:
+with open("anna.txt",'w',encoding = 'utf-8') as f:
    f.write("my first file\n")
    f.write("This file\n\n")
    f.write("contains three lines\n")
@@ -411,7 +424,6 @@ for line in f:
     print(line, end = '')
 
 
-  
 
-
+# REcognize cyrillic Mongolian letters - utf-8-sig
 df = pd.read_excel('cyrillic.xlsx', encode = 'utf-8-sig')
