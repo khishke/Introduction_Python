@@ -12,6 +12,10 @@ from email.mime.text import MIMEText           # managing email msg
 import pandas as pd
 import config # config.py file with info/credentials
 import logging
+import os
+
+os.chdir(r'C:\Users\sugarkhuu\Documents\python\Python_Introduction\week7')
+
 
 # mail content
 msg = MIMEMultipart('alternative')
@@ -34,7 +38,7 @@ mail.login(config.From, config.PASSWORD)
 print(logging.info('Just quit the mail client.') )
 
 try:
-    mail.sendmail(msg['From'], msg['To']+", "+msg['CC']+", "+msg['BCC'], msg.as_string())
+    mail.sendmail(msg['From'], msg['To'] + ", "+msg['CC']+", "+msg['BCC'], msg.as_string())
     print("Success: Email sent!")
 except Exception as e:
     print(e)

@@ -22,22 +22,24 @@ msg['Subject'] = "Link"
 msg['From'] = config.From
 msg['To'] = config.To # ", ".join(recipients)
 
-# Create the body of the message (a plain-text and an HTML version).
-text = "Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org"
-html = """\
-<html>
-  <head></head>
-  <body>
-    <p>Hi!<br>
-       How are you?<br>
-       Here is the <a href="http://www.python.org">link</a> you wanted.
-    </p>
-  </body>
-</html>
-"""
-
-part1 = MIMEText(text, 'plain')
-msg.attach(part1)
+# =============================================================================
+# # Create the body of the message (a plain-text and an HTML version).
+# text = "Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.python.org"
+# html = """\
+# <html>
+#   <head></head>
+#   <body>
+#     <p>Hi!<br>
+#        How are you?<br>
+#        Here is the <a href="http://www.python.org">link</a> you wanted.
+#     </p>
+#   </body>
+# </html>
+# """
+# 
+# part1 = MIMEText(text, 'plain')
+# msg.attach(part1)
+# =============================================================================
 
 
 # Record the MIME types of both parts - text/plain and text/html.
@@ -47,7 +49,7 @@ part1 = MIMEText(html.read(), 'html')
 # Attach parts into message container.
 # According to RFC 2046, the last part of a multipart message, in this case
 # the HTML message, is best and preferred.
-msg.attach(part2)
+msg.attach(part1)
 
 # take image files
 image1 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\about.jpg', 'rb').read())
@@ -102,7 +104,7 @@ image15.add_header('Content-ID', '<bg_1>')
 msg.attach(image15)
 image16.add_header('Content-ID', '<bg_2>')
 msg.attach(image16)
-image16.add_header('Content-ID', '<002-play-button>')
+image17.add_header('Content-ID', '<002-play-button>')
 msg.attach(image17)
 
 # Adding attachments
