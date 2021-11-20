@@ -12,6 +12,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import roc_auc_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -93,6 +94,7 @@ predictions = model.predict(X_validation)
 
 # Evaluate predictions
 print(accuracy_score(Y_validation, predictions))
+# print(roc_auc_score(Y_validation, predictions)) AUC, ROC - TP, FP
 print(confusion_matrix(Y_validation, predictions))
 print(classification_report(Y_validation, predictions))
 
