@@ -1,0 +1,11 @@
+,id,firstName,lastName,citizenId,age,yearsInCompany,salary,gender,startDate,politicalView
+0,1,Suren,Itgel,SU03,18,0.5,1.5,F,2020-05-13,left
+1,2,Chimeg,Baldan,BH98,23,2.0,1.7,F,2011-07-12,right
+2,4,Kherlen,Sukh,BU79,42,2.0,1.6,F,2019-11-15,left
+3,9,Saran,Tuvshin,DU97,24,2.0,1.3,F,2019-08-04,left
+4,3,Gerel,Tsog,DA86,35,4.0,1.9,F,2017-06-14,right
+5,10,Naran,Saikhan,AR91,30,1.0,1.5,M,2020-07-01,right
+6,6,Dondog,Uuree,DO96,25,3.0,2.1,M,2018-03-04,left
+7,7,Dash,Byamba,UB92,29,4.0,1.79,M,2017-05-27,right
+8,8,Bat,Bayar,UB02,19,6.0,2.4,M,2015-07-17,left
+9,5,Badral,Damchaa,ER89,32,8.0,2.3,M,2013-01-25,right
