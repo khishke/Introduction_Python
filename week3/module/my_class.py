@@ -1,5 +1,5 @@
 
-class Hotel:
+class Hotel():
     
     hType = "5 star" # class variable
     
@@ -10,10 +10,16 @@ class Hotel:
         self.__hidVar = 5 # private
 
     def getInfo(self):
-        return self.nGuest*1000
+        print("Number of guests is {}".format(self.nGuest))
+        print("Number of rooms is {}".format(self.nRoom))
+        print("Number of halls is {}".format(self.nHall))
+        return "something"
     
     def setGuest(self, nGuest):
         self.nGuest = nGuest
+        
+    def getGuest(self):
+        return self.nGuest
 
     def setRoom(self, nRoom):
         self.nRoom = nRoom
@@ -28,6 +34,10 @@ class Hotel:
 class bigHotel(Hotel):
     
     def __init__(self):
-        # super().__init__(1500,1000,100)
-        Hotel.__init__(self, 1500, 1000, 100)
+        super().__init__(1500,1000,100)
+        # Hotel.__init__(self, 1500, 1000, 100)
         
+    def getNumber(self):
+        return self.nGuest + self.nRoom + self.nHall
+        
+
