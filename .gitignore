@@ -1,3 +1,7 @@
-week4/result/
+4_Files/result/
+*/ppt/*
+!*/ppt/*.pdf
+!*/ppt/*.tex
+!*/ppt/figures/
 *.pyc
 *.pyo
