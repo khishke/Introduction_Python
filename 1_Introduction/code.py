@@ -3,8 +3,16 @@
 print("Line 1")
 # number of students
 # print(a)
-print("Line low")
-print('Lower a is: ', a)
+print("Line low") # it is an example
+    # print('Lower a is: ', a)
+    # print('Lower a is: ', a)
+    # print('Lower a is: ', a)
+    #     print('Lower a is: ', a)
+
+    # print('Lower a is: ', a)
+    # print('Lower a is: ', a)
+
+# it is also an example
 print('Lower in format a is: {}'.format(a))
 
 1+2
