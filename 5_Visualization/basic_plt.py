@@ -16,8 +16,6 @@ z = np.cos(x)
 plt.plot(x,y,x,z)
 
 # Sine and cosine
-z = np.cos(x)
-plt.plot(x,y,x,z)
 plt.plot(x,y,'b*',x,z,'k--')
 
 # color coding

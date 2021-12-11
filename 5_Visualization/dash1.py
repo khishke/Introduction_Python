@@ -1,4 +1,4 @@
-# Run this app with `python dash.py` and
+# Run this app with `python dash1.py` and
 # visit http://127.0.0.1:8050/ or http://localhost:8050/ in your web browser.
 
 import dash
