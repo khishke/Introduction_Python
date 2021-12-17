@@ -1,7 +1,8 @@
-4_Files/result/
+*/result/
 */ppt/*
 !*/ppt/*.pdf
 !*/ppt/*.tex
 !*/ppt/figures/
 *.pyc
 *.pyo
+/note.py
