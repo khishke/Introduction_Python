@@ -31,7 +31,7 @@ spans       = driver.find_elements(By.XPATH,"//*/h1/a/span") # multiple elements
 daily_fx_page = "https://www.mongolbank.mn/dblistofficialdailyrate.aspx"
 driver.get(daily_fx_page)
 
-all_rates_path = "/html/body/form/main/div/div/div/div/div[2]/div/div[5]/ul/li" # list of rates on that date
+all_rates_path = "/html/body/form/main/div/div/div/div/div[2]/div/div[7]/ul/li" # list of rates on that date
 all_rates = driver.find_elements(By.XPATH, all_rates_path)
 
 for i in range(len(all_rates)-1):
@@ -52,11 +52,11 @@ driver.get(daily_fx_page)
 # select exchange rate for chosen "year, month, day"
 # year
 driver.find_element(By.ID,'ctl00_ContentPlaceHolder1_cboYEAR_Input').click()
-driver.find_element(By.XPATH, "//*[@id='ctl00_ContentPlaceHolder1_cboYEAR_DropDown']/div/ul/li[2]").click()
+driver.find_element(By.XPATH, "//*[@id='ctl00_ContentPlaceHolder1_cboYEAR_DropDown']/div/ul/li[3]").click() # third from top, 2021 
 
 # month
 driver.find_element(By.ID,'ctl00_ContentPlaceHolder1_cboMONTH_Input').click()
-driver.find_element(By.XPATH, "//*[@id='ctl00_ContentPlaceHolder1_cboMONTH_DropDown']/div/ul/li[10]").click()
+driver.find_element(By.XPATH, "//*[@id='ctl00_ContentPlaceHolder1_cboMONTH_DropDown']/div/ul/li[10]").click() # October
 
 # day
 driver.find_element(By.ID,'ctl00_ContentPlaceHolder1_cboDAY_Input').click()
