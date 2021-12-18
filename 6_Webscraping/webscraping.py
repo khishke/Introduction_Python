@@ -31,19 +31,19 @@ spans       = driver.find_elements(By.XPATH,"//*/h1/a/span") # multiple elements
 daily_fx_page = "https://www.mongolbank.mn/dblistofficialdailyrate.aspx"
 driver.get(daily_fx_page)
 
-all_rates_path = "/html/body/form/main/div/div/div/div/div[2]/div/div[7]/ul/li" # list of rates on that date
-all_rates = driver.find_elements(By.XPATH, all_rates_path)
+all_rates_path = "/html/body/form/main/div/div/div/div/div[2]/div/div[7]/ul/li" # list of rates on that date //*[@id="ContentPlaceHolder1_lblUSD"]
+all_rates = driver.find_elements(By.XPATH, all_rates_path)                      # //*[@id="ContentPlaceHolder1_lblEUR"]
 
-for i in range(len(all_rates)-1):
-    rate = all_rates[i].find_element_by_xpath("table/tbody/tr/td[3]/span").text # A fx rate
-    rate_en = all_rates[i].find_element_by_xpath("table/tbody/tr/td[3]/span").get_attribute("id")[-3:] # FX code, 3 letters
-    rate_mn = all_rates[i].find_element_by_xpath("table/tbody/tr/td[2]").text # MN long description of FX code
+for i in range(len(all_rates)-1): # no need description -1
+    rate = all_rates[i].find_element(By.XPATH,"table/tbody/tr/td[3]/span").text # A fx rate
+    rate_en = all_rates[i].find_element(By.XPATH,"table/tbody/tr/td[3]/span").get_attribute("id")[-3:] # FX code, 3 letters
+    rate_mn = all_rates[i].find_element(By.XPATH,"table/tbody/tr/td[2]").text # MN long description of FX code
     print(rate,rate_mn,rate_en, i)
         
      
         
 # enter value to input box and search
-driver.find_element(By.XPATH, "//*[@id='gsc-i-id1']").send_keys("бодлогын хүү")
+driver.find_element(By.XPATH, "//*[@id='gsc-i-id1']").send_keys("бодлогын хүү") 
 driver.find_element(By.XPATH,"//*[@id='___gcse_0']/div/form/table/tbody/tr/td[2]/button").click()
 
 
@@ -126,3 +126,4 @@ driver.get(daily_fx_page)
 rate_link = driver.find_element(By.PARTIAL_LINK_TEXT,"Ханшийн стат")
 rate_link.click()
 
+driver.quit()
