@@ -4,9 +4,7 @@ import os
 import pandas as pd
 
 # working directory
-wd = r'C:\\Users\sugarkhuu\Documents\python\repo\Introduction_Python\week2'
-wd = wd.replace('\\','/') # wd = wd.replace(os.sep,'/')
-
+wd = r'D:\\Documents\python\repo\Introduction_Python\2_Data_and_Control_Flow\data'
 os.chdir(wd) # set working directory to wd
 
 

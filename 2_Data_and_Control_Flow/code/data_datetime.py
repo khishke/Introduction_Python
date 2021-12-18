@@ -1,4 +1,5 @@
-import datetime 
+import datetime # time, date, datetime
+# from datetime import datetime 
 
 # date
 today = datetime.date.today()
@@ -8,7 +9,7 @@ print("month =", today.month)
 print("day =", today.day)
 
 d = datetime.date(2019, 4, 13)
-t1 = datetime.date(year = 2018, month = 7, day = 12)
+t1 = datetime.date(month = 7, year = 2018, day = 12)
 t2 = datetime.date(year = 2017, month = 12, day = 23)
 t3 = t1 - t2
 print("t3 =", t3)
@@ -54,10 +55,11 @@ print("date_string =", date_string)
 date_object = datetime.datetime.strptime(date_string, "%d %B, %Y")
 print("date_object =", date_object)
 
-dt = datetime.strptime("21/11/06 16:30", "%d/%m/%y %H:%M")
+dt = datetime.datetime.strptime("21/11/06 16:30", "%d/%m/%y %H:%M")
+dt = datetime.datetime.strptime("21/11/06 16:30", "%y/%d/%m %H:%M")
 
 # strftime
-now = datetime.now()
+now = datetime.datetime.now()
 
 t = now.strftime("%H:%M:%S")
 print("time:", t)
@@ -70,4 +72,4 @@ s2 = now.strftime("%d/%m/%Y, %H:%M:%S")
 # dd/mm/YY H:M:S format
 print("s2:", s2)
 
-my_dt_str = datetime.date.today.strftime("%Y/%m/%d") # convert datetime to string (strptime)
+# my_dt_str = datetime.date.strftime("%Y/%m/%d") # convert datetime to string (strptime)

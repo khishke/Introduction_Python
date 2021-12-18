@@ -24,8 +24,12 @@ df.tail() # last # df.tail(3)
 
 df.describe() # descriptive statis
 
+df.columns
+df.index
 df['age']
 df['firstName']
+
+
 
 # iloc
 df.iloc[2,1]
@@ -62,17 +66,14 @@ df.groupby(['gender','politicalView'])[['age','salary']].mean()
 df.groupby(['gender','politicalView'])[['age','salary']].max()
 
 # df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'})
-res = df.groupby(['gender','politicalView']).agg({'age': ["mean","max"], 'salary': ["max","count"]})
+res = df.groupby(['gender','politicalView']) \
+        .agg({'age': ["mean","max"], 'salary': ["max","count"]})
 len(res.columns)
 res[('age','mean')]
 res['age']
 
 
-df.groupby(['gender','politicalView']).agg({'age': ["mean","max"], \
-    "salary": ["mean","max"] })
-
-
-df = df.sort_values(by="yearsInCompany")
+df = df.sort_values(by="yearsInCompany", ascending=False)
 
 df.sort_values(by="gender", inplace=True)
 df["name"] = np.arange(10)
@@ -81,9 +82,6 @@ del df["name"]
 df.reset_index(drop=True,inplace=True)
 
 df[["age","salary"]]
-
-df.columns # column names
-
 
 # statistics and values
 df['age'].mean()

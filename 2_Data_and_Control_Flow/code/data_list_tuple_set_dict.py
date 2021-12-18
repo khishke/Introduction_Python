@@ -26,6 +26,8 @@ type(my_list_mix)
 
 # join elements
 ",".join(['One', 'Two', 'Three'])
+" ".join(['One', 'Two', 'Three'])
+"___a___".join(['One', 'Two', 'Three'])
 
 
 # append list
@@ -44,18 +46,19 @@ my_list_str.pop()  # last item
 my_list_str.pop(2) # second item
 # or
 del my_list_str[5]
+del my_list_str[3:5]
 
 # remove by value
 my_list_str.remove('bat')
 
-
+my_list_str[3] = 'mungun'
 
 ############### TUPLE ###############
 
 # tuple - just list, but immutable
 my_tuple = (1,2,3)
 tuple(list(my_tuple))
-
+my_tuple[2] = 10
 
 
 ############### SET ###############
@@ -100,18 +103,19 @@ B.difference(A)
 ############### DICTIONARY ###############
 
 my_dict = {"name": "Bat", "age":25,"country":"Mongolia"}
+type(my_dict)
 
 my_dict['age'] 
 my_dict.get('age')
 my_dict['age'] = 27
 my_dict['address'] = 'Downtown'
 
-person2 = {"name": "Bold", "age": 23,"country": "Mongolia","city": "Darkhan"}
+person2 = {"name": "Bold", "age": 50,"country": "Mongolia","city": "Darkhan"}
 big_dict = {"Younger": my_dict, "Older": person2}
 big_dict['Younger']['name']
 
+print(list(sorted(my_dict.keys())))
+print(list(sorted(my_dict.values())))
 
 squares = {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 squares.pop(4) # drop key with value 4
-print(list(sorted(squares.keys())))
-print(list(sorted(squares.values())))

@@ -2,14 +2,14 @@
 # inspired by https://www.programiz.com/python-programming/tuple
 
 # STRING 
-my_string = 'baldan'
+my_string = 'baldan' # "baldan", """ dfdf """
 type(my_string)
 
 # concatenate strings
 mystr1 = "Nice"
 mystr2 = "day"
 
-myFullStr = mystr1 + mystr2 # myFullStr = mystr1 + " " + mystr2
+myFullStr = mystr1 +  mystr2 # myFullStr = mystr1 + " " + mystr2
 print(myFullStr)
 
 # NUMBER
