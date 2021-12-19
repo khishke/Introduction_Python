@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 colors = ["#006D2C", "#31A354","#74C476"]
 
 # just dataframe
-data = [[15, 10], [30, 15], [40, 14]]
+data = [[25, 10], [30, 15], [40, 14]]
 df = pd.DataFrame(data, columns = ['Name', 'Age'])
 df.plot.bar(stacked=True, color=colors, figsize=(10,7))
 plt.show()
