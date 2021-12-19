@@ -36,7 +36,7 @@ ax.set(xlim=xlim, ylim=ylim)
 
 # fig.savefig('figures/05.05-gaussian-NB.png')
 
-
+plt.show()
 
 
 from sklearn.datasets import fetch_20newsgroups
@@ -64,3 +64,5 @@ sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,
             xticklabels=train.target_names, yticklabels=train.target_names)
 plt.xlabel('true label')
 plt.ylabel('predicted label');
+
+plt.show()

@@ -1,13 +1,11 @@
 # Run this app with `python dash1.py` and
 # visit http://127.0.0.1:8050/ or http://localhost:8050/ in your web browser.
 
-import dash
+import dash # pip install dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
 import pandas as pd
-
-app = dash.Dash(__name__)
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
@@ -18,6 +16,9 @@ df = pd.DataFrame({
 })
 
 fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+# fig.show()
+
+app = dash.Dash(__name__)
 
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),

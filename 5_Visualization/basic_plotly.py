@@ -1,4 +1,5 @@
-# plotly 
+# plotly  
+# pip install plotly
 import plotly.io as pio
 pio.renderers.default='browser'
 
@@ -31,9 +32,10 @@ random_y = np.random.randint(1, 101, 100)
 plot = px.Figure(data=[px.Scatter(
     x=random_x,
     y=random_y,
-    mode='markers',)
+    mode='lines+markers')
 ])
- 
+# plot.show()
+
 # Add dropdown
 plot.update_layout(
     updatemenus=[
@@ -50,7 +52,7 @@ plot.update_layout(
                     method="restyle"
                 )
             ]),
-            direction="down",
+            direction="up",
         ),
     ]
 )
@@ -71,7 +73,7 @@ y = df['day']
 plot = px.Figure(data=[px.Scatter(
     x=x,
     y=y,
-    mode='lines',)
+    mode='markers',)
 ])
  
 plot.update_layout(
