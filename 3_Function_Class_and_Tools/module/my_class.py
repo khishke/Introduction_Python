@@ -6,7 +6,7 @@ class Hotel():
     def __init__(self, nGuest, nRoom, nHall):
         self.nGuest = nGuest # instance variables
         self.nRoom = nRoom
-        self.nHall = nHall
+        self.nHall = nHall+1
         self.__hidVar = 5 # private
 
     def getInfo(self):

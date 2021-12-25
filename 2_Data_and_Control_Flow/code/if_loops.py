@@ -1,6 +1,7 @@
 # Control Flow
 # https://www.programiz.com/python-programming/if-elif-else
 
+import numpy as np
 
 
 # if
@@ -26,8 +27,9 @@ elif num == 0:
 else:
     print("Negative number")
 
-
+# nested ifs
 num = float(input("Enter a number: "))
+
 if num >= 0:
     if num == 0:
         print("Zero")
@@ -42,7 +44,7 @@ else:
 for i in range(15):
     print(i)
 
-mylist = ['Bat','Geral','Bold']
+mylist = ['Bat','Gerel','Bold']
 
 for name in mylist:
     print(name)
@@ -59,13 +61,14 @@ for i in range(15):
 
 for i in range(15):
     if (i > 8) and (i < 12): # &
+        print(i, 'skipping')
+        continue # skip this time
+    else:
         if np.mod(i,2) == 0:
             print(i)
         else:
             print(i, ' Not even')
-    else:
-        print(i, 'skipping')
-        continue # skip this time
+    print('it continued!')
 
 
 for i in range(15):
@@ -99,10 +102,10 @@ for i in range(10):
 
 # Timing
 a = np.arange(10000)
-%timeit a + 1  
+# timeit a + 1  
 
 l = range(10000)
-%timeit [i+1 for i in l] 
+# %timeit [i+1 for i in l] 
 
 # WHILE
 

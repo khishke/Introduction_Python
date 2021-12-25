@@ -10,9 +10,11 @@ def func():
     h = 8 
     print("hi")
 
-for i in range(100):
+for i in range(10):
     y = i + 10 
     print(i)
+    if i >= 5:
+        a = 1/(i-i+1)
 
 
 func() # step into, step out - inside function
@@ -40,7 +42,7 @@ import pdb
 
 
 a = 5
-# pdb.set_trace()
+pdb.set_trace()
 a = 7
 
 # error

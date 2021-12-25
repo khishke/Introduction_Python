@@ -15,25 +15,25 @@ def two_times(number):
     # Function name is good when short, meaningful and easy to read
     """
     multiple by two
-    input
-    output
+    input: a number
+    output: a number
     """
     twice = number*2
     
     return twice 
 
-def my_function(input1, input2):
+def my_function(salary, age):
     # Prototype docstring
     """
     
-    Purpose of the function
+    Purpose of the function is ...
 
     Parameters
     ----------
-    input1 : float
-        salary of employee
-    input2 : int
-        age of employee
+    salary : float
+        salary of an employee
+    age : int
+        age of an employee
 
     Returns
     -------
@@ -50,10 +50,10 @@ def two_three_times_tuple(number):
     """
     multiply by two and three
     """
-    # first = number*2
-    # second = number*3
-    # return first, second
-    return number*2, number*3 # tuple
+    first = number*2
+    second = number*3
+    return first, second
+    # return number*2, number*3 # tuple
 
 def two_three_times_list(number):
     # multiple output as list
@@ -85,9 +85,7 @@ def aging1(year,age=25):
 def aging2(year, year1, age=25,avar = 17):
     # positional and default arguments
     """
-    """
-    "Age is %d and avar is %d. Name is %s" % (age,avar,"Bat")
-    
+    """    
     print("Age is %d and avar is %d. Name is %s" % (age,avar,"Bat"))
     
     age_10 = age + 10
@@ -97,9 +95,14 @@ def aging2(year, year1, age=25,avar = 17):
 def aging_args(*args):
     #optional (or arbitrary) positional arguments
     print("hi")
-    print(args[0])
-    print(args[2])
+    if len(args) > 3:
+        print(args[2])
+    elif len(args) > 0:
+        print(args[0])
+    else:
+        print('No optional argument. Stopping.')
 
+# def aging_args2(year=3, year1, age=25,avar = 17,*args): SyntaxError: non-default argument follows default argument
 def aging_args2(year, year1, age=25,avar = 17,*args):
     #optional (or arbitrary) positional arguments
     print("hi")
@@ -141,8 +144,9 @@ print(aging_args(15,25,35)) # any arguments, should be accessed by position
 print(aging_args2(85,75,15,25,35,23,25)) # any arguments, should be accessed by position
 print(aging_kwargs(numberChild = 3, nkeys = 5)) # any keyword arguments
 print(aging_kwargs2(nkeys=5)) # example of any keyword arguments
+print(aging_kwargs2(nbold=15)) # example of any keyword arguments
 
-#%% Scope of variables
+## Scope of variables
 # local scope
 x = 20 # global by default
 
@@ -173,7 +177,7 @@ print(x)   # x is changed as global
  
 
 
-#%% Module
+## Module
 
 # importing modules
 import pandas as pd # pd can be pds or whatever you want 
@@ -184,16 +188,16 @@ import os # operating system functionality is contained
 print(os.getcwd()) # current working directory will be printed
 
 # setting main dir is useful
-m_dir = r"C:\Users\sugarkhuu\Documents\python\repo\Introduction_Python_Nov21"
+m_dir = r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_Tools"
 
 # Path
 import sys # system parameters
 print(sys.path) # all folders in path 
-sys.path.append(m_dir + os.sep + 'week3\module') # add folder to path
+sys.path.append(m_dir + os.sep + 'module') # add folder to path
 print(sys.path) # all folders in path 
-sys.path.remove(m_dir + os.sep + 'week3\module') # remove folder from path
+sys.path.remove(m_dir + os.sep + 'module') # remove folder from path
 
-sys.path.append(m_dir + os.sep + 'week3\module') # add folder to path
+sys.path.append(m_dir + os.sep + 'module') # add folder to path
 
 # import
 import my_mod
@@ -221,7 +225,7 @@ del pandas
 
 
 
-#%% Class
+## Class
 # OOP
 class Person:
     "This is a person class"
@@ -241,11 +245,11 @@ print(bold.age)
 
 # add path
 import sys
-m_dir = r"C:\Users\sugarkhuu\Documents\python\repo\Introduction_Python_Nov21"
-sys.path.append(m_dir + os.sep + 'week3\module') # add folder to path
+m_dir = r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_Tools"
+sys.path.append(m_dir + os.sep + 'module') # add folder to path
 from my_class import *
 # alternative
-# from module.my_class import Hotel 
+# from my_class import Hotel 
 
 # Instantiation
 iHotel = Hotel(150,100,3)
@@ -281,7 +285,7 @@ print(iBig.getNumber())# total number of all
 
 
 
-#%% One-liner, lambda, zip, enumerate
+## One-liner, lambda, zip, enumerate
 import numpy as np
 
 ## one-liner
@@ -327,11 +331,11 @@ print(lst)
 ## lambda 
 
 func = lambda a : a + 10
-func(5)
+func(15)
 
 # filter
 def pos(input1):
-    return True if input1 >0 else False
+    return True if input1 > 0 else False
 
 res = list(filter(pos,[1,-10,3,-7,4,-9]))
 
@@ -355,17 +359,23 @@ list1 = range(0,10)
 list2 = range(10,20)
 
 for i in zip(list1, list2):
+    print('Line')
     print(i)  
 
 # enumerate  
 for count, value in enumerate(list2):
     print(count, value)
     
-for count, value in enumerate(['Michidmaa','Bodio','Nyamdelger']):
+for count, value in enumerate(['Maralmaa','Gerel','Batdelger']):
     print(count, value)
     
-#%% Exception
+## Exception
 randomList = ['a', 0, 2]
+
+
+for entry in randomList:
+    r = 1/int(entry)
+    print(r)
 
 for entry in randomList:
     try: 
@@ -374,11 +384,13 @@ for entry in randomList:
     except:
         print("Error. Can't do conversion because variable is {}, {}".format(entry,type(entry)))
 
+import sys
 # error system message
 for entry in randomList:
     try:
         print("The entry is", entry)
         r = 1/int(entry)
+        print("It works!")
     except:
         print("Oops!", sys.exc_info()[0], "occurred.")
         print("Next entry.")
@@ -390,14 +402,20 @@ for entry in randomList:
     try:
        # do something
         r = 1/int(entry)
-        print("Inverse of entry is " + str(r))
+        print("Success.")
     except ValueError:
        # handle ValueError exception
        print('Division by wrong type!')
+       entry = 5
+       r = 1/int(entry)
     except (TypeError, ZeroDivisionError):
        # handle multiple exceptions
        # TypeError and ZeroDivisionError
        print('Division by Zero!')
+       entry = entry+1
+       r = 1/int(entry)
+    
+    print("Inverse of entry is " + str(r))
    
 
 # User defined exception
@@ -406,6 +424,7 @@ class myStrangeError(Exception):
     print("My strange error occurred!")
     
 a = 1
+a = '51'
 try:
     if a > 5:
         a = a + 100 
@@ -418,7 +437,7 @@ except:
     print("Another error occurred!, so adding 1000")
     a = int(a) + 1000
 
-#%% Regular expression
+## Regular expression
 import re
 
 # regex, regexp
@@ -434,17 +453,18 @@ import re
 
 
 # findall - find all matches within the string
-string = 'hello 12 hi 8987. Howdy 34'
+string = 'hello 12, hi 8987. Howdy 34'
 pattern = '\d+' # find all numbers
 result = re.findall(pattern, string) 
 print(result)
 
-re.findall('[D-F]', "LIFE is Cool DARDU") # find CAPITAL letters between D and F
+re.findall('[D-F]', "LIFE is really fucking Cool DARDU") # find CAPITAL letters between D and F
 
 # search – first match anywhere in string
 string = "My iPython is fun aPython"
 match = re.search('Python', string) # search word Python
 match.group()
+re.findall('Python', string)
 
 string = '39801 356, 2102 1111'
 # Three digit number followed by space followed by two digit number
@@ -457,9 +477,8 @@ match.group(2)
 match.group(1, 2)
 match.groups()
 
-
+# no group
 pattern = '\d{3}\s\d{2}'
-# match variable contains a Match object. 
 match = re.search(pattern, string) 
 match.group()
 
@@ -496,16 +515,16 @@ Citizen ID KhO95021701. PIN code of Khan bank card is 0011\
 Lives with his wife and two children."
 
 
-citizenId = re.findall("\w{2,3}(?=\d{8})\d{8}",text)
+citizenId = re.findall("\w{2,4}(?=\d{8})\d{8}",text) # YeYe EE
 region    = re.findall(r"(Khovd|Uvs|Zavkhan)",text)
 mobileOperator = re.findall(r"(Mobicom|Unitel|Skytel|G-mobile)",text)
 mobile_number  = re.findall("(?<=\s)\d{8}",text)
-bank           = re.findall("\s(\w*)\sbank",text)
+bank           = re.findall("\s(\w+)\sbank",text)
 nChild         = re.findall("\s(\w*)\schildren",text)
 
 # ?<= lookbehind, ?= lookahead
 # + 1 or more, * 0 or more
-# [a-z][A-Z][0-9] - groups
+# [a-z][A-Z][0-9] - groups w = [a-zA-Z0-9_]
 # . any character, \ escape
 
 # again
