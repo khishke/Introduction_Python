@@ -70,6 +70,6 @@ for line in f:
     print(line, end = '')
 
 
-# REcognize cyrillic Mongolian letters - utf-8-sig
-df = pd.read_excel('cyrillic.xlsx')
-df.to_csv('cyr.csv',encoding='utf-8-sig') # if cyrillic MNG is not recognized
+# # REcognize cyrillic Mongolian letters - utf-8-sig
+# df = pd.read_excel('cyrillic.xlsx')
+# df.to_csv('cyr.csv',encoding='utf-8-sig') # if cyrillic MNG is not recognized

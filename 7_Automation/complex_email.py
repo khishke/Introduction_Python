@@ -3,8 +3,8 @@
 # https://github.com/ColorlibHQ/email-templates
 
 ### 
-# https://stackoverflow.com/questions/920910/sending-multipart-html-emails-which-contain-embedded-images
-# https://www.pauldesalvo.com/sending-an-html-formatted-email-with-attachments-through-gmail-using-python/
+# Image - https://stackoverflow.com/questions/920910/sending-multipart-html-emails-which-contain-embedded-images
+# Attachment - https://www.pauldesalvo.com/sending-an-html-formatted-email-with-attachments-through-gmail-using-python/
 
 
 import smtplib
@@ -43,7 +43,7 @@ msg['To'] = config.To # ", ".join(recipients)
 
 
 # Record the MIME types of both parts - text/plain and text/html.
-html = open(r"C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\index.html")
+html = open(r"email-templates\2\index.html")
 part1 = MIMEText(html.read(), 'html')
 
 # Attach parts into message container.
@@ -52,23 +52,23 @@ part1 = MIMEText(html.read(), 'html')
 msg.attach(part1)
 
 # take image files
-image1 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\about.jpg', 'rb').read())
-image2 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\blog-1.jpg', 'rb').read())
-image3 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\blog-2.jpg', 'rb').read())
-image4 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\person_1.jpg', 'rb').read())
-image5 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\person_2.jpg', 'rb').read())
-image6 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\person_3.jpg', 'rb').read())
-image7 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-1.jpg', 'rb').read())
-image8 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-2.jpg', 'rb').read())
-image9 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-3.jpg', 'rb').read())
-image10 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-4.jpg', 'rb').read())
-image11 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-5.jpg', 'rb').read())
-image12 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-6.jpg', 'rb').read())
-image13 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-7.jpg', 'rb').read())
-image14 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\work-8.jpg', 'rb').read())
-image15 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\bg_1.jpg', 'rb').read())
-image16 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\bg_2.jpg', 'rb').read())
-image17 = MIMEImage(open(r'C:\Users\sugarkhuu\Documents\python\repo\email-templates\2\images\002-play-button.png', 'rb').read())
+image1 = MIMEImage(open(r'email-templates\2\images\about.jpg', 'rb').read())
+image2 = MIMEImage(open(r'email-templates\2\images\blog-1.jpg', 'rb').read())
+image3 = MIMEImage(open(r'email-templates\2\images\blog-2.jpg', 'rb').read())
+image4 = MIMEImage(open(r'email-templates\2\images\person_1.jpg', 'rb').read())
+image5 = MIMEImage(open(r'email-templates\2\images\person_2.jpg', 'rb').read())
+image6 = MIMEImage(open(r'email-templates\2\images\person_3.jpg', 'rb').read())
+image7 = MIMEImage(open(r'email-templates\2\images\work-1.jpg', 'rb').read())
+image8 = MIMEImage(open(r'email-templates\2\images\work-2.jpg', 'rb').read())
+image9 = MIMEImage(open(r'email-templates\2\images\work-3.jpg', 'rb').read())
+image10 = MIMEImage(open(r'email-templates\2\images\work-4.jpg', 'rb').read())
+image11 = MIMEImage(open(r'email-templates\2\images\work-5.jpg', 'rb').read())
+image12 = MIMEImage(open(r'email-templates\2\images\work-6.jpg', 'rb').read())
+image13 = MIMEImage(open(r'email-templates\2\images\work-7.jpg', 'rb').read())
+image14 = MIMEImage(open(r'email-templates\2\images\work-8.jpg', 'rb').read())
+image15 = MIMEImage(open(r'email-templates\2\images\bg_1.jpg', 'rb').read())
+image16 = MIMEImage(open(r'email-templates\2\images\bg_2.jpg', 'rb').read())
+image17 = MIMEImage(open(r'email-templates\2\images\002-play-button.png', 'rb').read())
 
 
 # Define the image's ID as referenced in the HTML body above

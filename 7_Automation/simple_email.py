@@ -5,6 +5,10 @@
 # https://www.google.com/settings/security/lesssecureapps
 # Chrome - Account - Security - Less secure apps access
 
+import os
+print('Working directory at: ', os.getcwd())
+# os.chdir(r'7_Automation')
+
 
 import smtplib # to connect to email client
 from email.mime.multipart import MIMEMultipart # managing email msg
@@ -12,9 +16,7 @@ from email.mime.text import MIMEText           # managing email msg
 import pandas as pd
 import config # config.py file with info/credentials
 import logging
-import os
 
-os.chdir(r'C:\Users\sugarkhuu\Documents\python\Python_Introduction\week7')
 
 
 # mail content
@@ -25,7 +27,7 @@ msg['To'] = config.To # ", ".join(recipients)
 msg['CC'] = "sugarkhuul@gmail.com"
 msg['BCC'] = "sugarkhuu.radnaa@gmail.com"
 
-text = "Hello, \n This is body of the message. Best,\n Sugarkhuu"
+text = "Hello, \n Өдрийн мэнд хүргэе. Best,\n Sugarkhuu"
 part1 = MIMEText(text, 'plain')
 msg.attach(part1)
 
@@ -35,10 +37,10 @@ mail.ehlo()
 mail.starttls()
 mail.login(config.From, config.PASSWORD)
 
-print(logging.info('Just quit the mail client.') )
+# print(logging.info('Just quit the mail client.') )
 
 try:
-    mail.sendmail(msg['From'], msg['To'] + ", "+msg['CC']+", "+msg['BCC'], msg.as_string())
+    mail.sendmail(msg['From'], msg['To'] + ", " + msg['CC'] + ", "+ msg['BCC'], msg.as_string())
     print("Success: Email sent!")
 except Exception as e:
     print(e)
@@ -46,4 +48,10 @@ except Exception as e:
   
 mail.quit()
 
-logging.info('Just quit the mail client.') 
+# logging.basicConfig(level=logging.INFO, file='sample.log')
+# # logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
+# logging.debug('This message should go to the log file')
+# logging.info('So should this')
+# logging.warning('And this, too')
+# # logging.error('And non-ASCII stuff, too, like Øresund and Malmö')
+# print(logging.info('Just quit the mail client.'))
