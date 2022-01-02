@@ -3,12 +3,8 @@
 import os
 import sys
 
-sys.path.append(r'D:\Documents\python\repo\Introduction_Python_Nov21\week4\code')
+sys.path.append(r'D:\Documents\python\repo\Introduction_Python\4_Files\code')
 from settings import *
-# main_dir = r"D:\Documents\python\repo\Introduction_Python_Nov21\week4"
-# # relative to main_dir
-# resource_dir = 'resource' 
-# result_dir   = 'result'   
 
 # set main dir
 # os.getcwd()
@@ -40,27 +36,30 @@ for filepath in glob.glob('*.' + ext):
 # https://www.programiz.com/python-programming/methods/built-in/open
 
 
-f = open("anna.txt")   
 
 f = open("anna.txt")      # equivalent to 'r' or 'rt'
+f = open("anna.txt", mode='r')
 f = open("anna.txt",'w')  # write in text mode
-f = open("anna.txt", mode='r', encoding='utf-8')
 f.close()
 
+file_name = 'anna_1.txt'
 try:
-   f = open("anna.txt", encoding = 'utf-8')
+   f = open(file_name)
    # perform file operations
+except:
+    print("No file named {}".format(file_name))
 finally:
    f.close()
    
    
-with open("anna.txt",'w',encoding = 'utf-8') as f:
+with open("anna.txt",'w', encoding = 'utf-8') as f:
    f.write("my first file\n")
    f.write("This file\n\n")
    f.write("contains three lines\n")
+
+f.close()   
    
-   
-f = open("anna.txt",'r',encoding = 'utf-8')
+f = open("anna.txt",'w',encoding = 'utf-8')
 f.read(4)    # read the first 4 data
 f.read(4)    # read the next 4 data
 f.read()     # read in the rest till end of file

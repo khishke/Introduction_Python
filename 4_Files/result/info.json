@@ -1,102 +1,102 @@
 {
-    "1": {
-        "citizenId": "SU03",
-        "firstName": "Suren",
-        "lastName": "Itgel"
-    },
-    "2": {
-        "citizenId": "BH98",
-        "firstName": "Chimeg",
-        "lastName": "Baldan"
-    },
-    "3": {
-        "citizenId": "DA86",
-        "firstName": "Gerel",
-        "lastName": "Tsog"
-    },
-    "4": {
-        "citizenId": "BU79",
-        "firstName": "Kherlen",
-        "lastName": "Sukh"
-    },
-    "5": {
-        "citizenId": "ER89",
-        "firstName": "Badral",
-        "lastName": "Damchaa"
-    },
-    "6": {
-        "citizenId": "DO96",
-        "firstName": "Dondog",
-        "lastName": "Uuree"
-    },
-    "7": {
-        "citizenId": "UB92",
-        "firstName": "Dash",
-        "lastName": "Byamba"
-    },
-    "8": {
-        "citizenId": "UB02",
-        "firstName": "Bat",
-        "lastName": "Bayar"
-    },
-    "9": {
-        "citizenId": "DU97",
-        "firstName": "Saran",
-        "lastName": "Tuvshin"
-    },
-    "10": {
-        "citizenId": "AR91",
-        "firstName": "Naran",
-        "lastName": "Saikhan"
-    },
-    "11": {
-        "citizenId": "SU03",
-        "firstName": "Suren",
-        "lastName": "Itgel"
-    },
-    "12": {
-        "citizenId": "BH98",
-        "firstName": "Chimeg",
-        "lastName": "Baldan"
-    },
-    "13": {
-        "citizenId": "DA86",
-        "firstName": "Gerel",
-        "lastName": "Tsog"
-    },
-    "14": {
-        "citizenId": "BU79",
-        "firstName": "Kherlen",
-        "lastName": "Sukh"
-    },
-    "15": {
-        "citizenId": "ER89",
-        "firstName": "Badral",
-        "lastName": "Damchaa"
-    },
-    "16": {
-        "citizenId": "DO96",
-        "firstName": "Dondog",
-        "lastName": "Uuree"
-    },
-    "17": {
-        "citizenId": "UB92",
-        "firstName": "Dash",
-        "lastName": "Byamba"
-    },
-    "18": {
-        "citizenId": "UB02",
-        "firstName": "Bat",
-        "lastName": "Bayar"
-    },
-    "19": {
-        "citizenId": "DU97",
-        "firstName": "Saran",
-        "lastName": "Tuvshin"
-    },
-    "20": {
-        "citizenId": "AR91",
-        "firstName": "Naran",
-        "lastName": "Saikhan"
-    }
+          "1": {
+                    "citizenId": "SU03",
+                    "firstName": "Suren",
+                    "lastName": "Itgel"
+          },
+          "2": {
+                    "citizenId": "BH98",
+                    "firstName": "Chimeg",
+                    "lastName": "Baldan"
+          },
+          "3": {
+                    "citizenId": "DA86",
+                    "firstName": "Gerel",
+                    "lastName": "Tsog"
+          },
+          "4": {
+                    "citizenId": "BU79",
+                    "firstName": "Kherlen",
+                    "lastName": "Sukh"
+          },
+          "5": {
+                    "citizenId": "ER89",
+                    "firstName": "Badral",
+                    "lastName": "Damchaa"
+          },
+          "6": {
+                    "citizenId": "DO96",
+                    "firstName": "Dondog",
+                    "lastName": "Uuree"
+          },
+          "7": {
+                    "citizenId": "UB92",
+                    "firstName": "Dash",
+                    "lastName": "Byamba"
+          },
+          "8": {
+                    "citizenId": "UB02",
+                    "firstName": "Bat",
+                    "lastName": "Bayar"
+          },
+          "9": {
+                    "citizenId": "DU97",
+                    "firstName": "Saran",
+                    "lastName": "Tuvshin"
+          },
+          "10": {
+                    "citizenId": "AR91",
+                    "firstName": "Naran",
+                    "lastName": "Saikhan"
+          },
+          "11": {
+                    "citizenId": "SU03",
+                    "firstName": "Suren",
+                    "lastName": "Itgel"
+          },
+          "12": {
+                    "citizenId": "BH98",
+                    "firstName": "Chimeg",
+                    "lastName": "Baldan"
+          },
+          "13": {
+                    "citizenId": "DA86",
+                    "firstName": "Gerel",
+                    "lastName": "Tsog"
+          },
+          "14": {
+                    "citizenId": "BU79",
+                    "firstName": "Kherlen",
+                    "lastName": "Sukh"
+          },
+          "15": {
+                    "citizenId": "ER89",
+                    "firstName": "Badral",
+                    "lastName": "Damchaa"
+          },
+          "16": {
+                    "citizenId": "DO96",
+                    "firstName": "Dondog",
+                    "lastName": "Uuree"
+          },
+          "17": {
+                    "citizenId": "UB92",
+                    "firstName": "Dash",
+                    "lastName": "Byamba"
+          },
+          "18": {
+                    "citizenId": "UB02",
+                    "firstName": "Bat",
+                    "lastName": "Bayar"
+          },
+          "19": {
+                    "citizenId": "DU97",
+                    "firstName": "Saran",
+                    "lastName": "Tuvshin"
+          },
+          "20": {
+                    "citizenId": "AR91",
+                    "firstName": "Naran",
+                    "lastName": "Saikhan"
+          }
 }

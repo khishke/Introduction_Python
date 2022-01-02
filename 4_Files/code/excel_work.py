@@ -7,8 +7,9 @@
 import os
 import sys
 
-sys.path.append(r'D:\Documents\python\repo\Introduction_Python_Nov21\week4\code')
 from settings import *
+sys.path.append(r'' + main_dir + '\code')
+
 
 # set main dir
 os.chdir(main_dir+'/'+resource_dir)
@@ -35,13 +36,13 @@ ws["A1:C2"][1][2].value         # cell value from selected range
 ws["A:B"][1][1].value           # cell value from selected range
 
 # row and column range
-row12 = ws[1:2][1:3]  # row row 
+row1  = ws[1:2][1]  # row row 
 row12 = ws[1][1:3]    # row col when row is only one
                    
 # iter_rows, iter_cols
 for value in ws.iter_rows(min_row=1,max_row=4,
                              min_col=1,max_col=5,
-                             values_only=True): 
+                             values_only=True):  # 
     print(value)
 
 for value in ws.iter_cols(min_row=1,max_row=4,
@@ -82,7 +83,7 @@ for row in ws.iter_rows(min_row=2,min_col=1,max_col=4,
     info[info_id] = info_i
 
 with open('../' + result_dir + '/' + 'info.json', 'w') as myfile:
-    json.dump(info, myfile, sort_keys=True, indent=4) # 
+    json.dump(info, myfile, sort_keys=True, indent=10) # 
 
 # find min/max row and cols
 ws.min_row
@@ -157,9 +158,10 @@ last_row = ws.max_row
 age_col  = 5
 
 ws.cell(last_row+1,age_col).value = '=AVERAGE(E2:E' + str(last_row) + ')'
-wb.save(filename="data.xlsx")
+wb.save(filename=result_dir + os.sep + "data.xlsx")
 
 # , multiple sheets if pandas
+import pandas as pd
 xl = pd.ExcelFile("data.xlsx")
 df = xl.parse('Sheet1')
 with pd.ExcelWriter(result_dir + '/' + 'multiplesheet.xlsx', engine='xlsxwriter') as writer:

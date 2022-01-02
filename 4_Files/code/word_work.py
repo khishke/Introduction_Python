@@ -5,7 +5,8 @@ import os
 import sys
 from PyPDF2 import PdfFileReader
 
-sys.path.append(r'D:\Documents\python\repo\Introduction_Python_Nov21\week4\code')
+main_dir = r"D:\Documents\python\repo\Introduction_Python\4_Files"
+sys.path.append(r'' + main_dir + '\code')
 from settings import *
 
 # set main dir
@@ -92,6 +93,9 @@ a[0].runs[0].bold = True
 a[0].runs[0].text = 'Hello'
 
 
+d = Document('../' + result_dir + '/' + 'demo.docx')
+a = d.paragraphs    
+
 
 # convert PDF to Word
 anna = PdfFileReader('anna_karenina.pdf')
@@ -100,7 +104,7 @@ page_content = page.extractText()
 page_content = page_content.replace('\n','')
 document = Document()
 document.add_paragraph(page_content)
-document.save('anna_karenina.docx')  
+document.save('../' + result_dir + '/' + 'anna_karenina.docx')  
 
 
 

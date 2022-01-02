@@ -4,8 +4,10 @@
 import os
 import sys
 
-sys.path.append(r'D:\Documents\python\repo\Introduction_Python_Nov21\week4\code')
-from settings import * 
+main_dir = r"D:\Documents\python\repo\Introduction_Python\4_Files"
+sys.path.append(r'' + main_dir + '\code')
+from settings import *
+
 
 # set main dir
 os.chdir(main_dir + '/' + resource_dir)
