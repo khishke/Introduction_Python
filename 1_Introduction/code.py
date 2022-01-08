@@ -1,9 +1,9 @@
 # Sample code
-
+# Ctrl + Shift + P
 print("Test")
-print("Testing 2") # it is an example
+print('Testing 2') # it is an example
 a = 15
-print('Lower a is: ', a)
+print('a is: ', a)
 
 
 # it is also an example
@@ -14,7 +14,7 @@ print('Lower in format a is: {}'.format(a))
 5-9 # subtract
 5*5 # multiply
 5/8 # divide
-5**2 # power
+5**2 # power ^
 5**(1/2) # power
 
 # boolean
@@ -26,5 +26,5 @@ print(my_condition1)
 # string variable
 c = 'hello'
 
-m = input("Enter a number: ")
-print("You entered: " + str(m) + '. Done!')
+# m = input("Enter a number: ")
+# print("You entered: " + str(m) + '. Done!')
