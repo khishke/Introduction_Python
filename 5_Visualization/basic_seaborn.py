@@ -29,3 +29,9 @@ sns.scatterplot(data=dataChina, x="gdpPercap", y="lifeExp",
     size="pop", legend=False, hue = 'year', palette='colorblind', sizes=(20, 2000))
 plt.show()
 
+
+# Facet
+tips = sns.load_dataset("tips")
+g = sns.FacetGrid(tips, col="time", row="sex")
+g.map_dataframe(sns.histplot, x="total_bill", binwidth=2, binrange=(0, 60))
+plt.show()
