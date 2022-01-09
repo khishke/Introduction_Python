@@ -52,7 +52,7 @@ plot.update_layout(
                     method="restyle"
                 )
             ]),
-            direction="up",
+            direction="down",
         ),
     ]
 )
@@ -73,7 +73,7 @@ y = df['day']
 plot = px.Figure(data=[px.Scatter(
     x=x,
     y=y,
-    mode='markers',)
+    mode='lines',) # markers
 ])
  
 plot.update_layout(

@@ -38,7 +38,7 @@ for thresh in thresholds:
 	selection = SelectFromModel(model, threshold=thresh, prefit=True)
 	select_X_train = selection.transform(X_train)
 	# train model
-	selection_model = XGBClassifier()
+	selection_model = XGBClassifier(eval_metric='mlogloss',use_label_encoder=False)
 	selection_model.fit(select_X_train, y_train)
 	# eval model
 	select_X_test = selection.transform(X_test)

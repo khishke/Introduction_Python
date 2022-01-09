@@ -1,3 +1,4 @@
+# https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/
 # https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html
 
 # Additional
@@ -35,6 +36,9 @@ regr.fit(diabetes_X_train, diabetes_y_train)
 
 # Make predictions using the testing set
 diabetes_y_pred = regr.predict(diabetes_X_test)
+
+plt.scatter(diabetes_y_test, diabetes_y_pred)
+plt.hist(diabetes_X)
 
 # The coefficients
 print("Coefficients: \n", regr.coef_)

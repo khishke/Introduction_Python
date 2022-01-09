@@ -21,12 +21,18 @@ dataChina = gapminder.loc[gapminder.country == 'China']
 sns.scatterplot(data=data, x="gdpPercap", y="lifeExp", 
     size="pop", legend=False, sizes=(20, 2000))
 
+plt.show()
+
 sns.scatterplot(data=dataAll, x="gdpPercap", y="lifeExp", 
     size="pop", legend=False, hue = 'country', sizes=(20, 2000))
 plt.show()
 
 sns.scatterplot(data=dataChina, x="gdpPercap", y="lifeExp", 
     size="pop", legend=False, hue = 'year', palette='colorblind', sizes=(20, 2000))
+plt.show()
+
+sns.scatterplot(data=dataChina, x="gdpPercap", y="lifeExp", 
+    size="pop", legend=False, hue = 'year', palette='mako', sizes=(20, 2000))
 plt.show()
 
 

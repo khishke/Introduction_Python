@@ -94,7 +94,7 @@ predictions = model.predict(X_validation)
 
 # Evaluate predictions
 print(accuracy_score(Y_validation, predictions))
-# print(roc_auc_score(Y_validation, predictions)) AUC, ROC - TP, FP
+# print(roc_auc_score(Y_validation, predictions)) #AUC, ROC - TP, FP
 print(confusion_matrix(Y_validation, predictions))
 print(classification_report(Y_validation, predictions))
 

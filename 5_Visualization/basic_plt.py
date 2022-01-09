@@ -1,4 +1,4 @@
-## Matplotlib
+## Matplotlib demonstration
 
 import os
 os.chdir(r'5_Visualization')
@@ -40,7 +40,7 @@ plt.legend(['sin(x)', 'cos(x)'])
 plt.grid(True)
 plt.show()
 
-# + plt.text
+# + plt.text / annotation
 plt.plot(x,y,x,z)
 plt.xlabel('x values from 0 to 4pi')  # string must be enclosed with quotes '  '
 plt.ylabel('sin(x) and cos(x)')
@@ -71,9 +71,9 @@ plt.show()
 # Initialize the plot
 fig = plt.figure()
 fig.suptitle("Main title")
-ax1 = fig.add_subplot(231)
-ax2 = fig.add_subplot(232)
-ax3 = fig.add_subplot(233)
+ax1 = fig.add_subplot(131)
+ax2 = fig.add_subplot(132)
+ax3 = fig.add_subplot(133)
 
 # Plot the data
 ax1.bar([1,2,3],[3,4,5])
@@ -107,4 +107,21 @@ ax2.axhline(0.45)
 ax2.fill()
 ax1.axvline(0.65)
 ax3.scatter(x,y)
+plt.show()
+
+# figsize
+fig = plt.figure(figsize=(15, 15))
+fig.suptitle("Main title")
+ax1 = fig.add_subplot(131)
+ax2 = fig.add_subplot(132)
+ax3 = fig.add_subplot(133)
+
+# Plot the data
+ax1.bar([1,2,3],[3,4,5])
+ax2.barh([0.5,1,2.5],[0,1,2])
+ax2.axhline(0.45)
+# ax2.fill()
+ax1.axvline(1.5)
+ax3.scatter(x,y)
+ax3.set_title('Ax3 title')
 plt.show()

@@ -3,9 +3,7 @@
 # bokeh
 # dash
 
-https://github.com/bokeh/bokeh/tree/branch-3.0/examples/app
-
-# dashboard example
+# bokeh dashboard example
 https://github.com/bokeh/bokeh/tree/branch-3.0/examples/app/dash
 
 
