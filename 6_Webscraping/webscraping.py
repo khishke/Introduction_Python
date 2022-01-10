@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-
+import pandas as pd
 
 chrome_options = Options()
 
@@ -33,16 +33,21 @@ driver.get(daily_fx_page)
 
 all_rates_path = "/html/body/form/main/div/div/div/div/div[2]/div/div[7]/ul/li" # list of rates on that date //*[@id="ContentPlaceHolder1_lblUSD"]
 all_rates = driver.find_elements(By.XPATH, all_rates_path)                      # //*[@id="ContentPlaceHolder1_lblEUR"]
+rates_list = []
 
 for i in range(len(all_rates)-1): # no need description -1
     rate = all_rates[i].find_element(By.XPATH,"table/tbody/tr/td[3]/span").text # A fx rate
     rate_en = all_rates[i].find_element(By.XPATH,"table/tbody/tr/td[3]/span").get_attribute("id")[-3:] # FX code, 3 letters
     rate_mn = all_rates[i].find_element(By.XPATH,"table/tbody/tr/td[2]").text # MN long description of FX code
     print(rate,rate_mn,rate_en, i)
+    rates_list.append([rate,rate_mn,rate_en])
         
-     
+# export to excel
+df = pd.DataFrame(rates_list, columns=['Rate', 'MN', 'EN'])
+df.to_excel('./6_Webscraping/results/bom_rate.xlsx')
         
 # enter value to input box and search
+driver.get(bom_main_page)
 driver.find_element(By.XPATH, "//*[@id='gsc-i-id1']").send_keys("бодлогын хүү") 
 driver.find_element(By.XPATH,"//*[@id='___gcse_0']/div/form/table/tbody/tr/td[2]/button").click()
 
