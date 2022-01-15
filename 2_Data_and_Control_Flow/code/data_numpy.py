@@ -1,5 +1,6 @@
 # Numerical package - numpy (scipy) - Matrix operation important for Data science
-import numpy as np 
+import numpy as np
+# import datetime as dt 
 
 # array and array operation
 a = np.array([1, 2, 3, 4])
@@ -26,7 +27,8 @@ c = np.array([1, 2, 3, 4])
 a == b
 a > b
 np.array_equal(a, b)
-np.array_equal(a, c)
+np.array_equal(a, c) # np.all(a == c)
+
 
 a = np.array([1, 1, 0, 0], dtype=bool)
 b = np.array([1, 0, 1, 0], dtype=bool)
@@ -40,6 +42,11 @@ np.all(a == a)
 a = np.array([1, 2, 3, 2])
 b = np.array([2, 2, 3, 2])
 c = np.array([6, 4, 4, 5])
+((a <= b) & (b <= c)).all()
+
+a = np.array([1, 2, 3, 2])
+b = np.array([2, 2, 3, 2])
+c = np.array([6, 1, 4, 5])
 ((a <= b) & (b <= c)).all()
 
 # universal functions
@@ -57,8 +64,8 @@ np.sum(x)
 x.sum()
 
 x = np.array([[1, 2], [3, 4]])
-x.sum(axis=0)
-x.sum(axis=1)
+x.sum(axis=0) # columns
+x.sum(axis=1) # rows
 
 x = np.random.rand(2, 2, 2)
 x.sum(axis=2)[0, 1]     
@@ -83,10 +90,10 @@ a.shape
 a = a[:, np.newaxis]  # adds a new axis -> 2D array
 a.shape
 a
-a + b
+
 
 A = np.arange(12).reshape(3,4)
-np.repeat(A[:,:,np.newaxis], 2, axis=-1) # Using repeat to add a new dimension at the end
+b = np.repeat(A[:,:,np.newaxis], 2, axis=-1) # Using repeat to add a new dimension at the end
 
 np.tile(A, (2,1,1))  # add a new dimension at the beginning
 np.repeat(A[None,:,:], 2, axis=0) # add a new dimension at the beginning
@@ -99,13 +106,14 @@ distance = np.sqrt(x ** 2 + y ** 2)
 # ravel and flatten
 a = np.array([[1, 2, 3], [4, 5, 6]])
 a.flatten()
-a.ravel() # row wise
+a.ravel()
 a.T # row wise
 a.T.ravel() # row wise
 
 np.array([[1, 2, 3], [4, 5, 6]]).flatten()
 
 x = np.array([[[0], [1], [2]]])
+x.shape
 
 # squeeze
 x.shape
@@ -127,6 +135,7 @@ x = np.array([1, 2, 3, 1])
 y = np.array([[1, 2, 3], [5, 6, 1]])
 x.mean()
 np.median(x)
+np.median(y)
 np.median(y, axis=-1) # last axis
 x.std()     
 np.std(y,axis=0)

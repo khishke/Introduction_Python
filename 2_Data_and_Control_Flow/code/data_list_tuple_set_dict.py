@@ -25,9 +25,10 @@ type(my_list_mix)
 
 
 # join elements
-",".join(['One', 'Two', 'Three'])
-" ".join(['One', 'Two', 'Three'])
-"___a___".join(['One', 'Two', 'Three'])
+",".join(['Suren', 'Dorj', 'Borjigin'])
+" ".join(['Suren', 'Dorj', 'Borjigin'])
+"".join(['Suren', 'Dorj', 'Borjigin']) 
+"___a___".join(['Suren', 'Dorj', 'Borjigin'])
 
 
 # append list
@@ -39,6 +40,7 @@ my_list_str.insert(2, "orange")
 # extend list
 bchh = ["delger", "bayar", "urlee"]
 my_list_str.extend(bchh)
+my_list_str.append(bchh)
 
 
 # remove by index
@@ -51,19 +53,19 @@ del my_list_str[3:5]
 # remove by value
 my_list_str.remove('bat')
 
-my_list_str[3] = 'mungun'
+my_list_str[2] = 'mungun'
 
 ############### TUPLE ###############
 
 # tuple - just list, but immutable
 my_tuple = (1,2,3)
 tuple(list(my_tuple))
-my_tuple[2] = 10
+# my_tuple[2] = 10 ctrl + /
 
 
 ############### SET ###############
 my_set = {1,2,3}
-my_set[2] # can not do this
+# my_set[2] # can not do this
 my_set.add(10)
 my_set.add(2)
 my_set.add(0)
@@ -72,12 +74,13 @@ my_set.add(-5)
 my_set.update([2, 3, 4])
 my_set.update([4, 5], {1, 6, 8})
 my_set.discard(4) # no error if missing
-my_set.remove(4)  # error if missing
+# my_set.remove(4)  # error if missing
 my_set.remove(5)  # error if missing
 my_set.pop() # drop first, show it on console
 
 
 # traditional set operations
+my_set = {1,2,3}
 my_set2 = {1,2,7,8,9}
 my_set | my_set2 # join
 my_set & my_set2 # intersection
@@ -119,3 +122,6 @@ print(list(sorted(my_dict.values())))
 
 squares = {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 squares.pop(4) # drop key with value 4
+
+'Python'
+print('Python with print')

@@ -45,7 +45,7 @@ t1 = datetime.timedelta(weeks = 2, days = 5, hours = 1, seconds = 33)
 t2 = datetime.timedelta(days = 4, hours = 11, minutes = 4, seconds = 54)
 t3 = t1 - t2
 
-# strptime
+# strptime https://www.w3schools.com/python/gloss_python_date_format_codes.asp
 my_dt = datetime.datetime.strptime('2017-01-22', "%Y-%m-%d") # convert string to datetime (strptime)
 my_dt2 = datetime.datetime.strptime('2017/01/22', "%Y/%m/%d")
 
@@ -73,3 +73,8 @@ s2 = now.strftime("%d/%m/%Y, %H:%M:%S")
 print("s2:", s2)
 
 # my_dt_str = datetime.date.strftime("%Y/%m/%d") # convert datetime to string (strptime)
+
+
+# replace string
+a = '2017/01/15' # to 2017-01-15
+a = a.replace('/','-')

@@ -12,6 +12,12 @@ mystr2 = "day"
 myFullStr = mystr1 +  mystr2 # myFullStr = mystr1 + " " + mystr2
 print(myFullStr)
 
+my_string[1]
+my_string[0:1]
+my_string[0:2]
+my_string[-1]
+my_string[:-2]
+
 # NUMBER
 my_int = -15
 type(my_int)

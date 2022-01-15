@@ -6,13 +6,17 @@
 # Pandas
 import pandas as pd
 
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
+
 # Pandas read examples:
 # https://www.datacamp.com/community/tutorials/importing-data-into-pandas
 
 # be careful with backward slash \
 
 import os
-os.getcwd()  
+os.getcwd() # get current working directory 
 os.chdir(r'2_Data_and_Control_Flow\code')
 
 df = pd.read_excel(r"..\data\data.xlsx")
@@ -51,8 +55,8 @@ df[df["age"]<27][["firstName","lastName","salary","age"]]
 df[df["age"]>=27][["firstName","lastName","salary","age"]]
 
 
-df[(df["age"]<27) & (df["salary"]<2.0) & (df["gender"] != "M")]
-df[(df["age"]<27) & (df["salary"]<2.0) & (df["gender"] == "F")]
+df[(df["age"]<27) & (df["salary"]<2.0) & (df["gender"] != "M")][['age','salary','gender']]
+df[(df["age"]<27) & (df["salary"]<2.0) & (df["gender"] == "F")][['age','salary','gender']]
 
 df.groupby('gender')['salary'].mean()
 df.groupby("gender")['salary'].max()
@@ -68,6 +72,7 @@ df.groupby(['gender','politicalView'])[['age','salary']].max()
 # df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'})
 res = df.groupby(['gender','politicalView']) \
         .agg({'age': ["mean","max"], 'salary': ["max","count"]})
+res.columns
 len(res.columns)
 res[('age','mean')]
 res['age']
@@ -76,7 +81,9 @@ res['age']
 df = df.sort_values(by="yearsInCompany", ascending=False)
 
 df.sort_values(by="gender", inplace=True)
+
 df["name"] = np.arange(10)
+df
 del df["name"]
 
 df.reset_index(drop=True,inplace=True)
@@ -104,6 +111,7 @@ data = {'Salary':[1000, 2222, 3321, 4414, 5151],
        'Date2': [20120902, 20130413, 20140921, 20140321,
                 20140321]}
 df = pd.DataFrame(data)
+df.info()
 df['Date'] = pd.to_datetime(df['Date'])
 df.info()
 df['Date2'] = pd.to_datetime(df['Date2'])
