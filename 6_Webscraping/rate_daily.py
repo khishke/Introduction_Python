@@ -41,5 +41,5 @@ for year in range(2019,2019+1):
 
 # export to excel
 df = pd.DataFrame(rates_list, columns=['Date', 'MNT_USD'])
-df.to_excel('./results/bom_daily_rate.xlsx')
+df.to_excel('./6_Webscraping/results/bom_daily_rate.xlsx')
             
