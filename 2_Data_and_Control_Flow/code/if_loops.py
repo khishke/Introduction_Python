@@ -5,12 +5,25 @@ import numpy as np
 
 
 # if
+
+# if True|False:
+#     do something
+
 num = 3
+num > 0
+num < 0
+
 if num > 0:
     print(num, "is a positive number.")
 
 num = -3
 if num > 0:
+    print(num, "is a positive number.")
+
+if True:
+    print(num, "is a positive number.")
+
+if False:
     print(num, "is a positive number.")
 
 
@@ -24,8 +37,32 @@ if num > 0:
     print("Positive number")
 elif num == 0:
     print("Zero")
+elif num == 1:
+    print("Zero")
 else:
     print("Negative number")
+
+# first valid and stop
+num = 1
+if num > 0:
+    print("Positive number")
+elif num == 0:
+    print("Zero")
+elif num == 1:
+    print("One")
+else:
+    print("Negative number")
+
+num = 1
+if num > 1:
+    print("Positive number +1")
+elif num == 0:
+    print("Zero")
+elif num == 1:
+    print("One")
+else:
+    print("Negative number")
+
 
 # nested ifs
 num = float(input("Enter a number: "))
@@ -60,26 +97,26 @@ for i in range(15):
         break # skip the rest
 
 for i in range(15):
-    if (i > 8) and (i < 12): # &
+    if (i > 8) and (i < 12): # and = & or = |
         print(i, 'skipping')
         continue # skip this time
     else:
         if np.mod(i,2) == 0:
             print(i)
         else:
-            print(i, ' Not even')
+            print(i, ' Not even')    
     print('it continued!')
 
 
 for i in range(15):
     if i > 10 : 
-        print('passing')
+        # print('passing')
         pass
     else:
         continue
 
 
-mylist = [5,10,45,"Bold",45,45,'Chimeg']
+mylist = [5.2,10,45,"Bold",45,45,'Chimeg']
 
 for item in mylist:
     if isinstance(item, str):
@@ -101,11 +138,11 @@ for i in range(10):
         print(i)
 
 # Timing
-a = np.arange(10000)
-# timeit a + 1  
+# a = np.arange(10000)
+# # timeit a + 1  
 
-l = range(10000)
-# %timeit [i+1 for i in l] 
+# l = range(10000)
+# # %timeit [i+1 for i in l] 
 
 # WHILE
 
@@ -132,4 +169,4 @@ while i > 1:
 i = 10    
 while i > 1:
     print(i)
-    i -= 12
+    i -= 2

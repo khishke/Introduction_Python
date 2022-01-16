@@ -5,6 +5,7 @@
 
 # Pandas
 import pandas as pd
+import numpy as np
 
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
@@ -78,6 +79,13 @@ res[('age','mean')]
 res['age']
 
 
+# pivot table 
+table = pd.pivot_table(df, values=['age','salary'], index=['gender'],
+                    columns=['politicalView'], aggfunc=np.mean)
+print(table)
+table.to_excel('../result/pivot.xlsx')
+
+# sort
 df = df.sort_values(by="yearsInCompany", ascending=False)
 
 df.sort_values(by="gender", inplace=True)
