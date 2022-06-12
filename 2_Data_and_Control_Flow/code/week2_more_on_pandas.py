@@ -3,13 +3,17 @@
 import os 
 import pandas as pd
 
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
+
 # working directory
 wd = r'D:\\Documents\python\repo\Introduction_Python\2_Data_and_Control_Flow\data'
 os.chdir(wd) # set working directory to wd
 
 
 # import data files
-df_ind   = pd.read_excel('data_more.xlsx', sheet_name='loan_ind',
+df_ind   = pd.read_excel('data_more.xlsx', sheet_name='loan_ind', 
     usecols='D:I,L',skiprows=6, header=0)
 
 df_corp  = pd.read_excel('data_more.xlsx', sheet_name='loan_corp',
@@ -17,11 +21,12 @@ df_corp  = pd.read_excel('data_more.xlsx', sheet_name='loan_corp',
 
 # See columns of df_corp which are in Mongolian
 df_corp.columns
+df_ind.columns
 
 # Change column names of df_corp to the same names in loan_ind
 
 # column by column
-df_corp.rename(columns={'Харилцагчийн дугаар': 'clientId'}, inplace=True)
+# df_corp.rename(columns={'Харилцагчийн дугаар': 'clientId'}, inplace=True)
 
 # multiple columns
 df_corp.rename(columns={'Харилцагчийн дугаар': 'clientId',

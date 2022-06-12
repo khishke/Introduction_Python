@@ -1,6 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beamer Presentation
 % LaTeX Template
+% Note:
+% data cleaning should be added
+% https://realpython.com/python-data-cleaning-numpy-pandas/
+% 
+
 
 \documentclass{beamer}
 \mode<presentation> {
@@ -20,7 +25,7 @@ Py4Econ in Ulaanbaatar \\
 \medskip
 \textit{py4econ@gmail.com} 
 }
-\date{15 January, 2022}  % \today
+\date{}  %15 January, 2022 \today
 
 \begin{document}
 
@@ -171,7 +176,7 @@ Py4Econ in Ulaanbaatar \\
         SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
         WHERE CustomerID = 1;
         \item SELECT * FROM Customers
-        WHERE ContactName LIKE 'a%o';
+        WHERE ContactName LIKE 'a\%';
         \item SELECT Customers.CustomerName, Orders.OrderID
         FROM Customers
         LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
@@ -229,7 +234,7 @@ Py4Econ in Ulaanbaatar \\
     \vskip 2mm
     \begin{itemize}
         \item Submit your result as a Github repository
-        \item Deadline: 22 January, 2022
+        \item Deadline: 1 week %22 January, 2022
     \end{itemize}
 
 \vfill

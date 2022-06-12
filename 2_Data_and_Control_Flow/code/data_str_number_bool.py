@@ -16,7 +16,9 @@ my_string[1]
 my_string[0:1]
 my_string[0:2]
 my_string[-1]
+my_string[-2]
 my_string[:-2]
+my_string[2:-1]
 
 # NUMBER
 my_int = -15

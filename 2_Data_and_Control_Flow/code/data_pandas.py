@@ -18,9 +18,9 @@ pd.set_option('display.width', 1000)
 
 import os
 os.getcwd() # get current working directory 
-os.chdir(r'2_Data_and_Control_Flow\code')
+os.chdir(r'2_Data_and_Control_Flow')
 
-df = pd.read_excel(r"..\data\data.xlsx")
+df = pd.read_excel("data\data.xlsx")
 
 df.info()
 df.dtypes
@@ -32,7 +32,7 @@ df.describe() # descriptive statis
 df.columns
 df.index
 df['age']
-df['firstName']
+df['firstName'] # get firstname of all users
 
 
 
@@ -124,6 +124,18 @@ df['Date'] = pd.to_datetime(df['Date'])
 df.info()
 df['Date2'] = pd.to_datetime(df['Date2'])
 df['Date'] = df['Date'].astype('datetime64[ns]')
+
+# create pandas df
+data = {'Name': ['Tom', 'Joseph', 'Krish', 'John'], 'Age': [20, 21, 19, 18]}  
+df = pd.DataFrame(data)  
+
+data = {'Name': [], 'Age': []} 
+df = pd.DataFrame(data) 
+
+df = pd.DataFrame(columns=['name', 'age']) 
+
+df.rename(columns={'Name': 'Ner'}, inplace=True)
+type(data)
 
 
 # saving to files

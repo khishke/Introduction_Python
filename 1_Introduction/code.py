@@ -25,6 +25,7 @@ print(my_condition1)
 
 # string variable
 c = 'hello'
+cc = "hello"
 
 # m = input("Enter a number: ")
 # print("You entered: " + str(m) + '. Done!')

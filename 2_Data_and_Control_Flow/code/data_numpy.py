@@ -4,8 +4,10 @@ import numpy as np
 
 # array and array operation
 a = np.array([1, 2, 3, 4])
-b = np.ones(4) + 1
 a + 1
+
+b = np.ones(4) + 1
+
 2**a  # powers of 2
 a - b # difference 
 j = np.arange(5)
@@ -14,7 +16,7 @@ j = np.arange(5)
 # basic matrices
 c = np.ones((3, 3))
 c * c # element-wise
-c.dot(c) # matrix
+c.dot(c) # matrix np.dot(c,c)
 np.zeros((2,3)) # matrix of zeros
 np.eye(4) # unit matrix
 np.eye(4,5) # unit matrix
@@ -43,6 +45,8 @@ a = np.array([1, 2, 3, 2])
 b = np.array([2, 2, 3, 2])
 c = np.array([6, 4, 4, 5])
 ((a <= b) & (b <= c)).all()
+((a >= b) & (b <= c)).all()
+((a >= b) & (b <= c)).any()
 
 a = np.array([1, 2, 3, 2])
 b = np.array([2, 2, 3, 2])
@@ -56,8 +60,10 @@ np.log(a)
 np.exp(a)
 
 a = np.array([4, 3, 1, 2])
-np.argmax(a) # index of max
-np.argmin(a) # index of min
+np.argmax(a) # index of max - x 
+np.argmin(a) # index of min - x
+np.max(a) # index of max - y
+np.min(a) # index of min - y
 
 x = np.array([1, 2, 3, 4])
 np.sum(x)

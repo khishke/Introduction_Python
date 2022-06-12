@@ -46,7 +46,7 @@ for i in range(len(all_rates)-1): # no need description -1
 df = pd.DataFrame(rates_list, columns=['Rate', 'MN', 'EN'])
 df.to_excel('./6_Webscraping/results/bom_rate.xlsx')
         
-# enter value to input box and search
+# enter value to input box and search //*[@id="___gcse_0"]/div/form/table/tbody/tr/td[2]/button
 driver.get(bom_main_page)
 driver.find_element(By.XPATH, "//*[@id='gsc-i-id1']").send_keys("бодлогын хүү") 
 driver.find_element(By.XPATH,"//*[@id='___gcse_0']/div/form/table/tbody/tr/td[2]/button").click()
@@ -117,7 +117,7 @@ h1 = driver.find_elements(By.TAG_NAME,"h1")
 print(h1[0].text)
 
 # find by css selector - Inspect, Copy, Copy Selector
-header_date = driver.find_element(By.CSS_SELECTOR,"#ContentPlaceHolder1_lblDate")
+header_date = driver.find_element(By.CSS_SELECTOR,"#ContentPlaceHolder1_lblDate") 
 print(header_date.text)
 
 

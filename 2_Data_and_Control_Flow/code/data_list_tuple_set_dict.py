@@ -25,7 +25,8 @@ type(my_list_mix)
 
 
 # join elements
-",".join(['Suren', 'Dorj', 'Borjigin'])
+txt = ['Suren', 'Dorj', 'Borjigin']
+",".join(txt)
 " ".join(['Suren', 'Dorj', 'Borjigin'])
 "".join(['Suren', 'Dorj', 'Borjigin']) 
 "___a___".join(['Suren', 'Dorj', 'Borjigin'])
@@ -105,20 +106,21 @@ B.difference(A)
 
 ############### DICTIONARY ###############
 
-my_dict = {"name": "Bat", "age":25,"country":"Mongolia"}
-type(my_dict)
+my_husband = {"name": "Bat", "age":25,"country":"Mongolia"}
+type(my_husband)
 
-my_dict['age'] 
-my_dict.get('age')
-my_dict['age'] = 27
-my_dict['address'] = 'Downtown'
+my_husband['age'] 
+my_husband.get('age')
+my_husband['age'] = 27
+my_husband['address'] = 'Downtown'
 
 person2 = {"name": "Bold", "age": 50,"country": "Mongolia","city": "Darkhan"}
-big_dict = {"Younger": my_dict, "Older": person2}
+big_dict = {"Younger": my_husband, "Older": person2}
 big_dict['Younger']['name']
 
-print(list(sorted(my_dict.keys())))
-print(list(sorted(my_dict.values())))
+print(list(sorted(my_husband.keys())))
+print(list(sorted(my_husband.values())))
+print(list(my_husband.values()))
 
 squares = {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 squares.pop(4) # drop key with value 4

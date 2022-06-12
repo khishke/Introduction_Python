@@ -10,8 +10,6 @@ import numpy as np
 #     do something
 
 num = 3
-num > 0
-num < 0
 
 if num > 0:
     print(num, "is a positive number.")
@@ -38,7 +36,7 @@ if num > 0:
 elif num == 0:
     print("Zero")
 elif num == 1:
-    print("Zero")
+    print("One")
 else:
     print("Negative number")
 
@@ -108,15 +106,15 @@ for i in range(15):
     print('it continued!')
 
 
-for i in range(15):
-    if i > 10 : 
+for i in range(15):  
+    if i < 10 : 
         # print('passing')
         pass
     else:
-        continue
+        print("hi")
 
 
-mylist = [5.2,10,45,"Bold",45,45,'Chimeg']
+mylist = [5.2,10,45,"Bold",54,47,'Chimeg']
 
 for item in mylist:
     if isinstance(item, str):
@@ -146,6 +144,7 @@ for i in range(10):
 
 # WHILE
 
+# infinite loop
 i = 1
 while i>0:
     print(i)
@@ -156,11 +155,11 @@ while i < 100:
     i += 1 # i = i + 1
     
 i = 1    
-while i < 10:
+while i < 100:
     print(i)
     i *= 2
     
-i = 10    
+i = 100   
 while i > 1:
     print(i)
     i /= 2
