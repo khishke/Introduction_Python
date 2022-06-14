@@ -32,93 +32,21 @@ Py4Econ in Ulaanbaatar \\
     \frametitle{Week 3: Learning objectives}
     Get to know: 
     \begin{enumerate}
-        \item Functions and Modules
-        \item Class (OOP basics)
         \item Regex 
-        \item Additional
+        \item Other useful
         \begin{itemize}
             \item One-liner & lambda
             \item Exception handling
             \item Debugging
-        \end{itemize}         
+        \end{itemize}
+        \item Functions and Modules
+        \item Class (OOP basics)         
     \end{enumerate}
 \end{frame}
 
 %------------------------------------------------
-\section{Data types and structures} 
+% \section{Data types and structures} 
 %------------------------------------------------
-
-\begin{frame}
-\frametitle{Function}
-Function - not to repeat one action again and again
-    \begin{center}
-        \includegraphics[scale=0.5]{figures/function.jpg}
-    \end{center}        
-\end{frame}
-
-\begin{frame}
-\frametitle{Documenting a function is crucial!}
-Docstring prototype
-        \begin{center}
-            \includegraphics[scale=0.5]{figures/documentation.jpg}
-        \end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Function arguments}
-    \begin{itemize}
-        \item Positional (“input”) 
-        \item Keyword (“input=value”) - with a default value
-        \item Optional positional (*args)
-        \item Optional keyword (**kwargs)        
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Scope of variable}
-    \centering
-    \includegraphics[scale=0.5]{figures/variable_scope.jpg}
-\end{frame}
-
-\begin{frame}
-\frametitle{Module}
-
-As your program gets longer, you may want
-\begin{itemize}
-    \item to split it into several files 
-    for easier maintenance
-    \item to use also a handy function that
-    you have written in several programs without copying its definition into each 
-    program.
-\end{itemize}
-
-\vskip 2mm 
-
-To support this, Python has a way to put definitions in a file
-and use them. Such a file is called a \textit{module}; definitions from 
-a module can be imported into other modules or script. 
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Class – OOP philosophy}
-
-\textbf{Def:} Object-oriented programming (OOP) is a computer programming 
-model that organizes software design around data, or objects, 
-rather than functions and logic. An object can be defined as a 
-data field that has unique attributes and behavior.
-\vskip 2mm 
-Important concepts:
-    \begin{itemize}
-        \item Object (instance)
-        \item Method
-        \item Inheritance (super, child classes)
-        \item Setters and getters
-        \item Variable accessibility – Public/Private/Protected
-    \end{itemize}
-\end{frame}
 
 \begin{frame}
 \frametitle{One liner and Lambda}
@@ -187,6 +115,78 @@ Package “re”:
      \url{https://stackoverflow.com/questions/33072570/when-should-i-be-using-classes-in-python} 
 \end{frame}
 
+\begin{frame}
+    \frametitle{Function}
+    Function - not to repeat one action again and again
+        \begin{center}
+            \includegraphics[scale=0.5]{figures/function.jpg}
+        \end{center}        
+    \end{frame}
+    
+    \begin{frame}
+    \frametitle{Documenting a function is crucial!}
+    Docstring prototype
+            \begin{center}
+                \includegraphics[scale=0.5]{figures/documentation.jpg}
+            \end{center}
+    \end{frame}
+    
+    \begin{frame}
+    \frametitle{Function arguments}
+        \begin{itemize}
+            \item Positional (“input”) 
+            \item Keyword (“input=value”) - with a default value
+            \item Optional positional (*args)
+            \item Optional keyword (**kwargs)        
+        \end{itemize}
+    \end{frame}
+    
+    
+    \begin{frame}
+    \frametitle{Scope of variable}
+        \centering
+        \includegraphics[scale=0.5]{figures/variable_scope.jpg}
+    \end{frame}
+    
+    \begin{frame}
+    \frametitle{Module}
+    
+    As your program gets longer, you may want
+    \begin{itemize}
+        \item to split it into several files 
+        for easier maintenance
+        \item to use also a handy function that
+        you have written in several programs without copying its definition into each 
+        program.
+    \end{itemize}
+    
+    \vskip 2mm 
+    
+    To support this, Python has a way to put definitions in a file
+    and use them. Such a file is called a \textit{module}; definitions from 
+    a module can be imported into other modules or script. 
+    
+    \end{frame}
+    
+    
+    \begin{frame}
+    \frametitle{Class – OOP philosophy}
+    
+    \textbf{Def:} Object-oriented programming (OOP) is a computer programming 
+    model that organizes software design around data, or objects, 
+    rather than functions and logic. An object can be defined as a 
+    data field that has unique attributes and behavior.
+    \vskip 2mm 
+    Important concepts:
+        \begin{itemize}
+            \item Object (instance)
+            \item Method
+            \item Inheritance (super, child classes)
+            \item Setters and getters
+            \item Variable accessibility – Public/Private/Protected
+        \end{itemize}
+    \end{frame}
+
 %------------------------------------------------
 \section{Homework} 
 %------------------------------------------------
@@ -213,14 +213,49 @@ Package “re”:
 \end{frame}
 
 \begin{frame}
-    \frametitle{Task 1: Function arguments}
+    \frametitle{Task 1: Exception}
+    \begin{enumerate}
+        \item Generate array of 1000 random integers in numpy and create an array with only the negative even numbers.
+        \item Loop one by one through this array …
+        \item \ldots when negative & odd, then raise “odd error” and continue to next loop, 
+        \item \ldots when even but positive, raise “sign error” and continue to next loop \ldots
+        \item \ldots when “negative even”, then append your list. 
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Task 2: Debugging}
+    \begin{itemize}
+        \item Debugging гэж юу вэ?
+        \item Breakpoint – ийн ямар 3 төрөл (log message г.м) Vscode дээр байдаг вэ?
+        \item Debug-ийн step into, step over, stop out – ийн ялгааг тайлбарла 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Task 3: Regex}
+    Өөрөө зохиох эсвэл бэлэн текст интернетээс олж regex-ийн 
+    дараах үйлдлүүдийг ашиглан текстүүд гаргаж авах жишээнүүд үзүүл 
+    (нэг бүр дээр нь бус хамтад нь ашиглаж болно. Гэхдээ доорх бүх тэмдгээс ядаж 1 удаа ашиглаарай)
+
+    \begin{itemize}
+        \item {[a-zA-Z0-9], [a-z],[A-Z],[0-9]}
+        \item \textbackslash d, \textbackslash D, \textbackslash w, \textbackslash W, \textbackslash s
+        \item \^{}, \$, ?, *, +, .
+        \item \{m,n\}, \{,n\}, \{m,\}, \{n\}
+        \item Look behind, Look ahead, Negative look behind, Negative look ahead
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Task 4: Function arguments}
     Jupyter notebook дээр зөвхөн args, зөвхөн args=value, зөвхөн *args, 
     зөвхөн **kwargs аргументуудтай (4 тусдаа функц) болон эдгээрийн холимог 
     (2 функц) байгуулж, ажиллуулж үзүүл. Нийт 6 функц.
 \end{frame}
 
 \begin{frame}
-    \frametitle{Task 2: Class}
+    \frametitle{Task 5: Class}
     Create a bank deposit class which you can 
     \begin{itemize}
         \item withdraw money
@@ -236,41 +271,6 @@ Examples:
         \item \url{https://www.geeksforgeeks.org/python-program-to-create-bankaccount-class-with-deposit-withdraw-function/}
         \item \url{https://www.vtupulse.com/python-programs/python-program-using-classes-and-objects-to-deposit-and-withdraw-money-in-a-bank-account/}
         \item Tkinter GUI - \url{https://www.youtube.com/watch?v=SF-enJWjekY&list=PLtMugc7g4GapTtbhzODIjw7FJK-xJEBEE&index=16}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Task 3: Exception}
-    \begin{enumerate}
-        \item Generate array of 1000 random integers in numpy and create an array with only the negative even numbers.
-        \item Loop one by one through this array …
-        \item \ldots when negative & odd, then raise “odd error” and continue to next loop, 
-        \item \ldots when even but positive, raise “sign error” and continue to next loop \ldots
-        \item \ldots when “negative even”, then append your list. 
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Task 4: Debugging}
-    \begin{itemize}
-        \item Debugging гэж юу вэ?
-        \item Breakpoint – ийн ямар 3 төрөл (log message г.м) Vscode дээр байдаг вэ?
-        \item Debug-ийн step into, step over, stop out – ийн ялгааг тайлбарла 
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Task 5: Regex}
-    Өөрөө зохиох эсвэл бэлэн текст интернетээс олж regex-ийн 
-    дараах үйлдлүүдийг ашиглан текстүүд гаргаж авах жишээнүүд үзүүл 
-    (нэг бүр дээр нь бус хамтад нь ашиглаж болно. Гэхдээ доорх бүх тэмдгээс ядаж 1 удаа ашиглаарай)
-
-    \begin{itemize}
-        \item {[a-zA-Z0-9], [a-z],[A-Z],[0-9]}
-        \item \textbackslash d, \textbackslash D, \textbackslash w, \textbackslash W, \textbackslash s
-        \item \^{}, \$, ?, *, +, .
-        \item \{m,n\}, \{,n\}, \{m,\}, \{n\}
-        \item Look behind, Look ahead, Negative look behind, Negative look ahead
     \end{itemize}
 \end{frame}
 

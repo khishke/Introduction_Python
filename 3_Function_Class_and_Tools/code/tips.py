@@ -7,12 +7,12 @@ import numpy as np
 # long 
 mlist = [] 
 for i in range(10):
-    print(i)
     mlist.append(i)
 print(mlist)
 
 # one line
-mmlist = [i for i in range(10)]    
+mmlist = [i for i in range(10)]  
+# mmlist = [5 for i in range(10)]    
 print(mmlist)
 
 # if
@@ -25,6 +25,7 @@ else:
     
 # one-line
 yvar = 5 if status else 4
+# yvar = 5 if 5>6 else 4
 
 # if else and for loop
 # long
@@ -64,20 +65,28 @@ print(new_list)
 
 # map
 my_list = [1, 5, 4, 6, 8, 11, 3, 12]
-new_list = list(map(lambda x: x * 2, my_list))
+new_list = list(map(lambda x: x * 2, my_list)) # F C 32 +5/9*C
 print(new_list)
 
 # zip
 list1 = range(0,10)
 list2 = range(10,20)
 
+print(zip(list1, list2))
+
 for i in zip(list1, list2):
-    print('Line')
     print(i)  
+
+for i in list1:
+    for j in list2:
+        print(i,j)  
 
 # enumerate  
 for count, value in enumerate(list2):
     print(count, value)
+
+for value in list2:
+    print(value)
     
 for count, value in enumerate(['Maralmaa','Gerel','Batdelger']):
     print(count, value)

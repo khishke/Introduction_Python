@@ -13,37 +13,37 @@ def func():
 for i in range(10):
     y = i + 10 
     print(i)
-    if i >= 5:
-        a = 1/(i-i+1)
+    if i >= 3:
+        a = 1/(i-5)
 
 
-func() # step into, step out - inside function
+# func() # step into, step out - inside function
 
 
-class myStrangeError(Exception):
-    # do correction here
-    print("My strange error occurred!")
+# class myStrangeError(Exception):
+#     # do correction here
+#     print("My strange error occurred!")
     
-a = 1
-try:
-    if a > 5:
-        a = a + 100 
-    else:
-        raise myStrangeError()
-except myStrangeError:
-    print("My strange error occurred!, so adding only 10")
-    a = a + 10
-except:
-    print("Another error occurred!, so adding 1000")
-    a = int(a) + 1000
+# a = 1
+# try:
+#     if a > 5:
+#         a = a + 100 
+#     else:
+#         raise myStrangeError()
+# except myStrangeError:
+#     print("My strange error occurred!, so adding only 10")
+#     a = a + 10
+# except:
+#     print("Another error occurred!, so adding 1000")
+#     a = int(a) + 1000
 
 
-import pdb
+# import pdb
 
 
-a = 5
-pdb.set_trace()
-a = 7
+# a = 5
+# pdb.set_trace()
+# a = 7
 
-# error
-b = a/0
+# # error
+# b = a/0
