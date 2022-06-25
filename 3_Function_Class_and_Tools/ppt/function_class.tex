@@ -36,8 +36,8 @@ Py4Econ in Ulaanbaatar \\
         \item Other useful
         \begin{itemize}
             \item One-liner & lambda
-            \item Exception handling
             \item Debugging
+            \item Exception handling
         \end{itemize}
         \item Functions and Modules
         \item Class (OOP basics)         
@@ -49,20 +49,32 @@ Py4Econ in Ulaanbaatar \\
 %------------------------------------------------
 
 \begin{frame}
+    \frametitle{Regular expressions}
+Search "pattern"  from text and do an action
+Package “re”:
+    \begin{itemize}
+        \item compile
+        \item findall – find all matches
+        \item match – match at the beginning of string
+        \item search – first match anywhere in string
+        \item split – split string into pieces at pattern points
+        \item sub – replace match by user input
+        \item group 
+        \item special characters
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Regular expressions special characters}
+            \centering
+            \includegraphics[scale=0.5]{figures/regex.jpg}
+\end{frame}
+
+\begin{frame}
 \frametitle{One liner and Lambda}
     Helpful for writing concise codes
         \begin{center}
             \includegraphics[scale=0.5]{figures/one_liner.jpg}
-        \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Exception handling}
-    Exceptions occur from time to time in any sort of job. 
-    If you know what kind of errors potentially could occur
-    and implement “remedy(ies)” on it beforehand
-        \begin{center}
-            \includegraphics[scale=0.5]{figures/exception.jpg}
         \end{center}
 \end{frame}
 
@@ -88,25 +100,13 @@ Hand inputted breakpoint:
 \end{frame}
 
 \begin{frame}
-    \frametitle{Regular expressions}
-Search "pattern"  from text and do an action
-Package “re”:
-    \begin{itemize}
-        \item compile
-        \item findall – find all matches
-        \item match – match at the beginning of string
-        \item search – first match anywhere in string
-        \item split – split string into pieces at pattern points
-        \item sub – replace match by user input
-        \item group 
-        \item special characters
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Regular expressions special characters}
-            \centering
-            \includegraphics[scale=0.5]{figures/regex.jpg}
+    \frametitle{Exception handling}
+    Exceptions occur from time to time in any sort of job. 
+    If you know what kind of errors potentially could occur
+    and implement “remedy(ies)” on it beforehand
+        \begin{center}
+            \includegraphics[scale=0.5]{figures/exception.jpg}
+        \end{center}
 \end{frame}
 
 \begin{frame}
@@ -213,27 +213,7 @@ Package “re”:
 \end{frame}
 
 \begin{frame}
-    \frametitle{Task 1: Exception}
-    \begin{enumerate}
-        \item Generate array of 1000 random integers in numpy and create an array with only the negative even numbers.
-        \item Loop one by one through this array …
-        \item \ldots when negative & odd, then raise “odd error” and continue to next loop, 
-        \item \ldots when even but positive, raise “sign error” and continue to next loop \ldots
-        \item \ldots when “negative even”, then append your list. 
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Task 2: Debugging}
-    \begin{itemize}
-        \item Debugging гэж юу вэ?
-        \item Breakpoint – ийн ямар 3 төрөл (log message г.м) Vscode дээр байдаг вэ?
-        \item Debug-ийн step into, step over, stop out – ийн ялгааг тайлбарла 
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Task 3: Regex}
+    \frametitle{Task 1: Regex}
     Өөрөө зохиох эсвэл бэлэн текст интернетээс олж regex-ийн 
     дараах үйлдлүүдийг ашиглан текстүүд гаргаж авах жишээнүүд үзүүл 
     (нэг бүр дээр нь бус хамтад нь ашиглаж болно. Гэхдээ доорх бүх тэмдгээс ядаж 1 удаа ашиглаарай)
@@ -244,6 +224,26 @@ Package “re”:
         \item \^{}, \$, ?, *, +, .
         \item \{m,n\}, \{,n\}, \{m,\}, \{n\}
         \item Look behind, Look ahead, Negative look behind, Negative look ahead
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Task 2: Exception}
+    \begin{enumerate}
+        \item Generate array of 1000 random integers in numpy and create an array with only the negative even numbers.
+        \item Loop one by one through this array …
+        \item \ldots when negative & odd, then raise “odd error” and continue to next loop, 
+        \item \ldots when even but positive, raise “sign error” and continue to next loop \ldots
+        \item \ldots when “negative even”, then append your list. 
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Task 3: Debugging}
+    \begin{itemize}
+        \item Debugging гэж юу вэ?
+        \item Breakpoint – ийн ямар 3 төрөл (log message г.м) Vscode дээр байдаг вэ?
+        \item Debug-ийн step into, step over, stop out – ийн ялгааг тайлбарла 
     \end{itemize}
 \end{frame}
 

@@ -5,11 +5,12 @@ def myFunc(myInput):
     """
     This function does ...
     Input:
-    Output
+    Output:
     """
     print("Hi")
     twice = myInput * 2
     return twice
+
 
 def two_times(number):
     # Function name is good when short, meaningful and easy to read
@@ -26,7 +27,7 @@ def my_function(salary, age):
     # Prototype docstring
     """
     
-    Purpose of the function is ...
+    Purpose of the function is to estimate expected salary in two years
 
     Parameters
     ----------
@@ -65,16 +66,25 @@ def two_three_times_list(number):
     return [number*2, number*3] # list
 
 def aging(age=25, year = 93):
-    # default arguments
+    # keyword default arguments
     """
     """
     
     print("Age is {}".format(age))
-    age_10 = age + 10
+    age_10 = age - 10
     year_10 = year + 10
     return age_10, year_10
 
 def aging1(year,age=25):
+    # positional (keyword) and default arguments
+    """
+    """
+    age_10 = age + 10
+    year_10 = year + 10
+    return age_10, year_10
+
+# error
+def aging1(age=25, year):
     # positional (keyword) and default arguments
     """
     """
@@ -103,11 +113,11 @@ def aging_args(*args):
         print('No optional argument. Stopping.')
 
 # def aging_args2(year=3, year1, age=25,avar = 17,*args): SyntaxError: non-default argument follows default argument
-def aging_args2(year, year1, age=25,avar = 17,*args):
+def aging_args2(year, year1, age=25,avar = 17,*fun):
     #optional (or arbitrary) positional arguments
     print("hi")
-    print(args[0])
-    print(args[2])
+    print(fun[0])
+    print(fun[2])
     
 def aging_kwargs(**kwargs):
     #optional (or arbitrary) keyword arguments
@@ -121,8 +131,10 @@ def aging_kwargs2(**kwargs):
     # print(kwargs['numberChild'])
     if 'numberChild' in kwargs.keys():
         print("numberChild exists") 
+        print(kwargs['numberChild']*5)
     elif 'nkeys' in kwargs.keys():
         print("use nkeys")
+        print(kwargs['nkeys']*5)
     else: 
         print("do nothing with numberChild and nkeys")
     
@@ -150,14 +162,21 @@ print(aging_kwargs2(nbold=15)) # example of any keyword arguments
 # local scope
 x = 20 # global by default
 
-def my_func(ageby=5):
+def my_func(order=5):
+    
+    beleg = 5 # local by default 
+    total = beleg + order
+    return total
+
+def my_func1(order=5):
     
     x = 5 # local by default 
-    x = x + ageby
+    x = x + order
     return x
 
+
 print(x)   # global
-res = my_func() # shouldn't change the global
+res = my_func1() # shouldn't change the global
 print(res) # x is changed as local
 print(x)   # x is still unchanged as global
 
@@ -193,6 +212,7 @@ m_dir = r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_
 # Path
 import sys # system parameters
 print(sys.path) # all folders in path 
+sys.path.append(r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_Tools\module")
 sys.path.append(m_dir + os.sep + 'module') # add folder to path
 print(sys.path) # all folders in path 
 sys.path.remove(m_dir + os.sep + 'module') # remove folder from path
@@ -224,6 +244,8 @@ from pandas import *
 del pandas
 
 
+import my_mod
+
 
 ## Class
 # OOP
@@ -244,6 +266,7 @@ bold.age = 30      # assign value
 print(bold.age)
 
 # add path
+import os
 import sys
 m_dir = r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_Tools"
 sys.path.append(m_dir + os.sep + 'module') # add folder to path
@@ -255,13 +278,13 @@ from my_class import *
 iHotel = Hotel(150,100,3)
 
 
-print(iHotel.nGuest)     # number of guest, variable
+print(iHotel.ng)     # number of guest, variable
 print(iHotel.getInfo())  # getInfo method
 print(iHotel.__hidVar)   # private (hidden) variable with __ prefix
 print(iHotel.dispHid())  # see private variable through a method
 
 iHotel.setGuest(350)     # setGuest method
-print(iHotel.nGuest)     # number of guest, variable
+print(iHotel.ng)     # number of guest, variable
 print(iHotel.getGuest()) # number of guest, variable
 
 iHotel.setRoom(18)       # setRoom method
@@ -270,7 +293,7 @@ print(iHotel.getInfo())
 
 iBig = bigHotel()      # child class 
 
-print(iBig.nGuest)     # number of guest, variable
+print(iBig.ng)     # number of guest, variable
 print(iBig.getInfo())  # getInfo method
 print(iBig.__hidVar)   # private (hidden) variable with __ prefix
 print(iBig.dispHid())  # see private variable through a method

@@ -5,6 +5,8 @@
 # https://docs.python.org/3/library/pdb.html
 # https://realpython.com/python-debugging-pdb/#using-breakpoints
 
+# debug a function - example
+
 def func():
     k = 7
     h = 8 
