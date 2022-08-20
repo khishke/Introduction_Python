@@ -4,10 +4,12 @@ print("Test")
 print('Testing 2') # it is an example
 a = 15
 print('a is: ', a)
-
+5+3
 
 # it is also an example
 print('Lower in format a is: {}'.format(a))
+b = 25
+print('a is: {} and b is {}'.format(a,b))
 
 # Basic operators
 1+2 # add
@@ -25,7 +27,15 @@ print(my_condition1)
 
 # string variable
 c = 'hello'
-cc = "hello"
+cc = "world"
+
+c + cc
 
 # m = input("Enter a number: ")
 # print("You entered: " + str(m) + '. Done!')
+
+"a"+"5"
+a = "25"
+int(a)+5
+float(a)+5
+

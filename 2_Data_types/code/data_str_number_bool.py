@@ -11,6 +11,7 @@ mystr2 = "day"
 
 myFullStr = mystr1 +  mystr2 # myFullStr = mystr1 + " " + mystr2
 print(myFullStr)
+" ".join([mystr1, mystr2, 'is nice'])
 
 my_string[1]
 my_string[0:1]
@@ -20,7 +21,7 @@ my_string[-2]
 my_string[:-2]
 my_string[2:-1]
 
-# NUMBER
+# NUMBER - LONG, DOUBLE
 my_int = -15
 type(my_int)
 

@@ -15,6 +15,8 @@ t3 = t1 - t2
 print("t3 =", t3)
 
 timestamp = datetime.date.fromtimestamp(1326244364)
+timestamp = datetime.date.fromtimestamp(1326244364+24*60*60*2)
+timestamp = datetime.date.fromtimestamp(1)
 
 # time
 a = datetime.time(11, 34, 56)
