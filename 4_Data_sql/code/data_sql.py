@@ -1,6 +1,8 @@
 import psycopg2
 import pandas as pd
 
+# toad sql
+
 connection = psycopg2.connect(
         user = "postgres",
         password = "postgres",

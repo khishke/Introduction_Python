@@ -18,7 +18,7 @@ pd.set_option('display.width', 1000)
 
 import os
 os.getcwd() # get current working directory 
-os.chdir(r'2_Data_and_Control_Flow')
+os.chdir(r'3_Data_table')
 
 df = pd.read_excel("data\data.xlsx")
 
@@ -45,14 +45,15 @@ df.loc[5,"lastName"]
 df.loc[5:8,"lastName"]
 df.loc[5:8,("lastName","firstName")]
 
-df.set_index('firstName',drop=False, inplace=True) # , 
+df.set_index('firstName',drop=False,inplace=True) # ,
+# df.index = df['firstName']
 df.loc["Gerel","lastName"]
 
 
 # filter
 df[df["age"]<27]
 df[~(df['age']<27)]['age']
-df[df["age"]<27][["firstName","lastName","salary","age"]]
+df[df["age"]<27][["firstName","lastName","salary","age"]] # df[df["age"]<27]["firstName","lastName","salary","age"]
 df[df["age"]>=27][["firstName","lastName","salary","age"]]
 
 
@@ -71,24 +72,29 @@ df.groupby(['gender','politicalView'])[['age','salary']].mean()
 df.groupby(['gender','politicalView'])[['age','salary']].max()
 
 # df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'})
+res = df.groupby(['gender','politicalView']).agg({'age': ["mean","max"], 'salary': ["max","count"]})
+
 res = df.groupby(['gender','politicalView']) \
         .agg({'age': ["mean","max"], 'salary': ["max","count"]})
 res.columns
 len(res.columns)
 res[('age','mean')]
 res['age']
+res.columns = ['agemax','agemean','salmax','salcount']
+res.reset_index(inplace=True)
 
 
 # pivot table 
 table = pd.pivot_table(df, values=['age','salary'], index=['gender'],
                     columns=['politicalView'], aggfunc=np.mean)
 print(table)
-table.to_excel('../result/pivot.xlsx')
+table.to_excel('./result/pivot.xlsx')
 
 # sort
 df = df.sort_values(by="yearsInCompany", ascending=False)
 
 df.sort_values(by="gender", inplace=True)
+df.sort_values(by=["gender","age"], inplace=True)
 
 df["name"] = np.arange(10)
 df
@@ -122,8 +128,8 @@ df = pd.DataFrame(data)
 df.info()
 df['Date'] = pd.to_datetime(df['Date'])
 df.info()
-df['Date2'] = pd.to_datetime(df['Date2'])
-df['Date'] = df['Date'].astype('datetime64[ns]')
+df['Date2'] = pd.to_datetime(df['Date2'],format="%Y%m%d")
+# df['Date'] = df['Date'].astype('datetime64[ns]')
 
 # create pandas df
 data = {'Name': ['Tom', 'Joseph', 'Krish', 'John'], 'Age': [20, 21, 19, 18]}  
@@ -131,14 +137,21 @@ df = pd.DataFrame(data)
 
 data = {'Name': [], 'Age': []} 
 df = pd.DataFrame(data) 
+df.loc[0] = ["Bat",15]
+df.loc[1] = ["Bat",15]
 
 df = pd.DataFrame(columns=['name', 'age']) 
+df.loc[0] = ["Bat",15]
+df.loc[1] = ["Bat",15]
+
 
 df.rename(columns={'Name': 'Ner'}, inplace=True)
 type(data)
 
+df.rename(columns={'Name': 'Ner', 'Age': 'Nas'}, inplace=True)
+
 
 # saving to files
-df.to_csv('../result/my.csv')
-df.to_json('../result/my.json')
-df.to_excel('../result/my.xlsx')
+df.to_csv('./result/my.csv')
+df.to_json('./result/my.json')
+df.to_excel('./result/my.xlsx')

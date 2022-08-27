@@ -44,7 +44,7 @@ np.all(a == a)
 a = np.array([1, 2, 3, 2])
 b = np.array([2, 2, 3, 2])
 c = np.array([6, 4, 4, 5])
-((a <= b) & (b <= c)).all()
+((a <= b) & (b <= c)).all() # and != &. Check!
 ((a >= b) & (b <= c)).all()
 ((a >= b) & (b <= c)).any()
 
@@ -52,28 +52,44 @@ a = np.array([1, 2, 3, 2])
 b = np.array([2, 2, 3, 2])
 c = np.array([6, 1, 4, 5])
 ((a <= b) & (b <= c)).all()
+((a <= b) | (b <= c)).all()
+
+# length of 1
+a = np.array([1])
+b = np.array([2])
+c = np.array([6])
+((a <= b) and (b >= c)).all()
+((a <= b) or (b <= c)).all()
+
 
 # universal functions
-a = np.arange(5)
+a = np.arange(500000)
 np.sin(a)
 np.log(a)
 np.exp(a)
 
 a = np.array([4, 3, 1, 2])
-np.argmax(a) # index of max - x 
-np.argmin(a) # index of min - x
 np.max(a) # index of max - y
 np.min(a) # index of min - y
+np.argmax(a) # index of max - x 
+np.argmin(a) # index of min - x
+
 
 x = np.array([1, 2, 3, 4])
 np.sum(x)
 x.sum()
 
-x = np.array([[1, 2], [3, 4]])
-x.sum(axis=0) # columns
+x = np.array([[1,2,3], [3,4,8]])
+x.sum(axis=0) # columns 
 x.sum(axis=1) # rows
 
 x = np.random.rand(2, 2, 2)
+
+x.sum(axis=0)  # first or last block
+x.sum(axis=1)  # up or down
+x.sum(axis=2)  # left or right
+
+
 x.sum(axis=2)[0, 1]     
 x[0, 1, :].sum() 
 
@@ -83,6 +99,9 @@ a = np.arange(9).reshape(3, 3)
 a.T
 
 # tile and repeat
+
+np.tile(np.arange(0, 40, 10), (3,2))
+
 a = np.tile(np.arange(0, 40, 10), (3, 1)).T
 a
 np.tile(np.arange(0, 40, 10), (1, 3))
@@ -100,6 +119,7 @@ a
 
 A = np.arange(12).reshape(3,4)
 b = np.repeat(A[:,:,np.newaxis], 2, axis=-1) # Using repeat to add a new dimension at the end
+b = np.repeat(A[:,:,np.newaxis], 2, axis=1) # Using repeat to add a new dimension at the end
 
 np.tile(A, (2,1,1))  # add a new dimension at the beginning
 np.repeat(A[None,:,:], 2, axis=0) # add a new dimension at the beginning
@@ -133,6 +153,7 @@ np.sin(b)
 # sort
 a = np.array([4, 3, 1, 2])
 a.sort(axis=0)
+a = np.array([4, 3, 1, 2])
 j = np.argsort(a)
 a[j] # by sorted index
 
@@ -140,13 +161,14 @@ a[j] # by sorted index
 x = np.array([1, 2, 3, 1])
 y = np.array([[1, 2, 3], [5, 6, 1]])
 x.mean()
+y.mean(axis=1)
 np.median(x)
 np.median(y)
 np.median(y, axis=-1) # last axis
 x.std()     
 np.std(y,axis=0)
 
-rg = np.random.default_rng(1)
+rg = np.random.default_rng(1234) # set.seed in R
 a = np.floor(10 * rg.random((2, 2)))
 b = np.floor(10 * rg.random((2, 2)))
 
@@ -158,6 +180,10 @@ np.hstack((a, b)) # col to col
 A = [[1, 4, 5, 12], 
     [-5, 8, 9, 0],
     [-6, 7, 11, 19]]
+
+A = np.array( [[1, 4, 5, 12], 
+    [-5, 8, 9, 0],
+    [-6, 7, 11, 19]])
 
 print("A =", A) 
 print("A[1] =", A[1])      # 2nd row
