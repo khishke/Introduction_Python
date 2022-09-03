@@ -1,4 +1,4 @@
-import psycopg2
+import psycopg2 # pip install psycopg2
 import pandas as pd
 
 # toad sql
@@ -6,7 +6,7 @@ import pandas as pd
 connection = psycopg2.connect(
         user = "postgres",
         password = "postgres",
-        host = "localhost",
+        host = "localhost", # 198.16.16.01, 127.0.0.1
         port = "5432",
         database = "mydata"
     )
@@ -21,7 +21,13 @@ colnames = [desc[0] for desc in cursor.description]
 df = pd.DataFrame(record)
 df.columns = colnames
 
-df.to_csv('mysqldata.csv')
+df.to_csv(r'D:\Documents\python\repo\Introduction_Python\4_Data_sql\data\mysqldata.csv')
+
+print("Printing database .............")
+
+print(df)
+
+print("Done!")
 
 cursor.close()
 connection.close()
