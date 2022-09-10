@@ -2,6 +2,7 @@
 # https://www.programiz.com/python-programming/if-elif-else
 
 import numpy as np
+import pandas as pd
 
 
 # if
@@ -51,17 +52,6 @@ elif num == 1:
 else:
     print("Negative number")
 
-num = 1
-if num > 1:
-    print("Positive number +1")
-elif num == 0:
-    print("Zero")
-elif num == 1:
-    print("One")
-else:
-    print("Negative number")
-
-
 # nested ifs
 num = float(input("Enter a number: "))
 
@@ -84,6 +74,15 @@ mylist = ['Bat','Gerel','Bold']
 for name in mylist:
     print(name)
 
+# external data
+df = pd.read_excel("5_Flow_control/data/data.xlsx")
+for index, row in df.iterrows():
+   # print(row['firstName'], row['lastName'])
+   print("{}-{}".format(row['firstName'], row['lastName']))
+
+for colname in df.columns:
+    print(colname)
+
 
 for i in range(15):
     if i < 13: 
@@ -103,12 +102,26 @@ for i in range(15):
             print(i)
         else:
             print(i, ' Not even')    
-    print('it continued!')
+
+    print('The number is either below 9 or above 11 !')
+
+for i in range(15):
+
+    if (i < 5) | (i > 8) or (i < 11): # or = |
+        print(i, 'skipping')
+        continue # skip this time
+    else:
+        if np.mod(i,2) == 0:
+            print(i)
+        else:
+            print(i, ' Not even')
+
+    print('The number is either below 5 or above 8 !')
 
 
 for i in range(15):  
-    if i < 10 : 
-        # print('passing')
+    if i < 10 :
+        # print('developing ...')
         pass
     else:
         print("hi")
@@ -119,17 +132,21 @@ mylist = [5.2,10,45,"Bold",54,47,'Chimeg']
 for item in mylist:
     if isinstance(item, str):
         print(item)
-        
+
+short_list = []
+for item in mylist:
+    if isinstance(item, float):  # int, str, float
+        short_list.append(item)
+
 for item in mylist:
     if isinstance(item, int):
         print(item)
-
                 
 for item in mylist:
     if type(item) == int:
         print(item)
         
-short_list = [1,2,5]
+short_list = [1,2,5,15]
 
 for i in range(10):
     if i in short_list:
@@ -152,7 +169,7 @@ while i>0:
 i = 1    
 while i < 100:
     print(i)
-    i += 1 # i = i + 1
+    i += 1 # i = i + 1 #
     
 i = 1    
 while i < 100:
@@ -169,3 +186,5 @@ i = 10
 while i > 1:
     print(i)
     i -= 2
+
+# merge strings and loop
