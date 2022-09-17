@@ -7,7 +7,7 @@ class Hotel():
         self.ng = nGuest # instance variables
         self.nr = nRoom
         self.nh = nHall+1
-        self.__hidVar = 5 # private hidden
+        self.__hidVar = 5 # private, hidden
 
     def getInfo(self):
         print("Number of guests is {}".format(self.ng))

@@ -3,9 +3,11 @@
 def myFunc(myInput):
     # Basic function
     """
-    This function does ...
-    Input:
-    Output:
+    This function multiplies a number by two
+    Input:  [list, tuple, dictionary, pd dataframe] 200*50*30 (country*variable*year)
+    Output: a number [200*50*30*5 (country*variable*year*indicator)]
+
+    Copyright: Sugarkhuu Radnaa, 2021
     """
     print("Hi")
     twice = myInput * 2
@@ -38,7 +40,7 @@ def my_function(salary, age):
 
     Returns
     -------
-    int
+    sal2: float
         twice the first input.
 
 
@@ -51,10 +53,10 @@ def two_three_times_tuple(number):
     """
     multiply by two and three
     """
-    first = number*2
-    second = number*3
-    return first, second
-    # return number*2, number*3 # tuple
+    # first = number*2
+    # second = number*3
+    # return first, second
+    return number*2, number*3 # tuple
 
 def two_three_times_list(number):
     # multiple output as list
@@ -93,7 +95,7 @@ def aging1(age=25, year):
     return age_10, year_10
 
 def aging2(year, year1, age=25,avar = 17):
-    # positional and default arguments
+    # positional and keyword arguments
     """
     """    
     print("Age is %d and avar is %d. Name is %s" % (age,avar,"Bat"))
@@ -105,7 +107,7 @@ def aging2(year, year1, age=25,avar = 17):
 def aging_args(*args):
     #optional (or arbitrary) positional arguments
     print("hi")
-    if len(args) > 3:
+    if len(args) >= 3:
         print(args[2])
     elif len(args) > 0:
         print(args[0])
@@ -113,7 +115,7 @@ def aging_args(*args):
         print('No optional argument. Stopping.')
 
 # def aging_args2(year=3, year1, age=25,avar = 17,*args): SyntaxError: non-default argument follows default argument
-def aging_args2(year, year1, age=25,avar = 17,*fun):
+def aging_args2(year, year1, age=25,avar = 17, *fun):   # (year, year1, *fun, age=25,avar = 17):
     #optional (or arbitrary) positional arguments
     print("hi")
     print(fun[0])
@@ -137,7 +139,7 @@ def aging_kwargs2(**kwargs):
         print(kwargs['nkeys']*5)
     else: 
         print("do nothing with numberChild and nkeys")
-    
+    return kwargs['nkeys']*5
     
 result = myFunc(10)   # basic
 print(result)         # print to terminal
@@ -175,135 +177,13 @@ def my_func1(order=5):
     return x
 
 
-print(x)   # global
-res = my_func1() # shouldn't change the global
-print(res) # x is changed as local
-print(x)   # x is still unchanged as global
-
-# global scope
-x = 20 # global by default
-
-def my_func(ageby=5):
-    
-    global x # use global variable inside a function
-    x = x + ageby
+def my_func2(order=5):
+    global x
+    x = x + order
     return x
 
-print(x)   # global 
-res = my_func() # should change the global
-print(res) # x is changed inside the function
-print(x)   # x is changed as global
- 
-
-
-## Module
-
-# importing modules
-import pandas as pd # pd can be pds or whatever you want 
-import pandas      # then should use pandas.DataFrame not pd.DataFrame
-import numpy as np  
-
-import os # operating system functionality is contained
-print(os.getcwd()) # current working directory will be printed
-
-# setting main dir is useful
-m_dir = r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_Tools"
-
-# Path
-import sys # system parameters
-print(sys.path) # all folders in path 
-sys.path.append(r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_Tools\module")
-sys.path.append(m_dir + os.sep + 'module') # add folder to path
-print(sys.path) # all folders in path 
-sys.path.remove(m_dir + os.sep + 'module') # remove folder from path
-
-sys.path.append(m_dir + os.sep + 'module') # add folder to path
-
-# import
-import my_mod
-print(my_mod.mmod_func(5))
-
-help(my_mod)
-del my_mod
-
-import my_mod as mm
-print(mm.mmod_func(5))
-
-
-# import specific function
-from my_mod import mmod_funcA as myA
-myA(53)
-
-# import all as system level functions
-from my_mod import * 
-mmod_funcA(5)
-
-# same with pandas or other packages
-from pandas import *
-# read_csv()
-del pandas
-
-
-import my_mod
-
-
-## Class
-# OOP
-class Person:
-    "This is a person class"
-    age    = 20 
-    height = 175
-
-    # method == function
-    def greet(self):
-        print('Hello')
-
-bold = Person() # instantiation
-print(bold.age)
-bold.greet()
-Person.greet(bold) # can use class name outside
-bold.age = 30      # assign value
-print(bold.age)
-
-# add path
-import os
-import sys
-m_dir = r"D:\\Documents\\python\\repo\\Introduction_Python\3_Function_Class_and_Tools"
-sys.path.append(m_dir + os.sep + 'module') # add folder to path
-from my_class import *
-# alternative
-# from my_class import Hotel 
-
-# Instantiation
-iHotel = Hotel(150,100,3)
-
-
-print(iHotel.ng)     # number of guest, variable
-print(iHotel.getInfo())  # getInfo method
-print(iHotel.__hidVar)   # private (hidden) variable with __ prefix
-print(iHotel.dispHid())  # see private variable through a method
-
-iHotel.setGuest(350)     # setGuest method
-print(iHotel.ng)     # number of guest, variable
-print(iHotel.getGuest()) # number of guest, variable
-
-iHotel.setRoom(18)       # setRoom method
-iHotel.setHall(2)        # setHall method
-print(iHotel.getInfo())  
-
-iBig = bigHotel()      # child class 
-
-print(iBig.ng)     # number of guest, variable
-print(iBig.getInfo())  # getInfo method
-print(iBig.__hidVar)   # private (hidden) variable with __ prefix
-print(iBig.dispHid())  # see private variable through a method
-
-iBig.setGuest(350)     # setGuest method
-print(iBig.nGuest)     # number of guest, variable
-
-iBig.setRoom(18)       # setRoom method
-iBig.setHall(2)        # setHall method
-print(iBig.getInfo())  
-print(iBig.getNumber())# total number of all
-
-    
+## Files starts:
+a = 15
+b = 23
+c = my_func(a)
+print(beleg)

@@ -12,7 +12,7 @@
 \usepackage{graphicx} 
 \usepackage{hyperref}
 
-\title[Introduction to Python]{Function, Class, Regular expressions \& other tools} 
+\title[Introduction to Python]{Function, Module and Class} 
 \author{Sugarkhuu Radnaa} 
 \institute[]
 {
@@ -29,83 +29,18 @@ Py4Econ in Ulaanbaatar \\
 \end{frame}
 
 \begin{frame}
-    \frametitle{Week 3: Learning objectives}
+    \frametitle{Week 6: Learning objectives}
     Get to know: 
     \begin{enumerate}
-        \item Regex 
-        \item Other useful
-        \begin{itemize}
-            \item One-liner & lambda
-            \item Debugging
-            \item Exception handling
-        \end{itemize}
         \item Functions and Modules
         \item Class (OOP basics)         
     \end{enumerate}
 \end{frame}
 
+
 %------------------------------------------------
-% \section{Data types and structures} 
+\section{Function} 
 %------------------------------------------------
-
-\begin{frame}
-    \frametitle{Regular expressions}
-Search "pattern"  from text and do an action
-Package “re”:
-    \begin{itemize}
-        \item compile
-        \item findall – find all matches
-        \item match – match at the beginning of string
-        \item search – first match anywhere in string
-        \item split – split string into pieces at pattern points
-        \item sub – replace match by user input
-        \item group 
-        \item special characters
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Regular expressions special characters}
-            \centering
-            \includegraphics[scale=0.5]{figures/regex.jpg}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Debugging}
-
-In IDEs (VSCode):
-
-    \begin{itemize}
-        \item Actions at breakpoints: continue, step over, step into, step out
-        \item Additional actions at breakpoints - expression, hit count, log message
-        \item Watch
-        \item Exceptions
-    \end{itemize}
-
-\vskip 2mm
-
-Hand inputted breakpoint:
-
-    \begin{itemize}
-        \item import pdb, pdb.set\_trace()
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Exception handling}
-    Exceptions occur from time to time in any sort of job. 
-    If you know what kind of errors potentially could occur
-    and implement “remedy(ies)” on it beforehand
-        \begin{center}
-            \includegraphics[scale=0.5]{figures/exception.jpg}
-        \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Additional reading: Why is “class” useful?}
-    Please read most upvoted answer by "dantiston":
-     \url{https://stackoverflow.com/questions/33072570/when-should-i-be-using-classes-in-python} 
-\end{frame}
 
 \begin{frame}
     \frametitle{Function}
@@ -140,6 +75,10 @@ Hand inputted breakpoint:
         \includegraphics[scale=0.5]{figures/variable_scope.jpg}
     \end{frame}
     
+%------------------------------------------------
+\section{Module} 
+%------------------------------------------------
+
     \begin{frame}
     \frametitle{Module}
     
@@ -179,6 +118,13 @@ Hand inputted breakpoint:
         \end{itemize}
     \end{frame}
 
+    \begin{frame}
+        \frametitle{Additional reading: Why is “class” useful?}
+        Please read most upvoted answer by "dantiston":
+         \url{https://stackoverflow.com/questions/33072570/when-should-i-be-using-classes-in-python} 
+    \end{frame}
+
+    
 %------------------------------------------------
 \section{Homework} 
 %------------------------------------------------
@@ -189,9 +135,6 @@ Hand inputted breakpoint:
         \item Task 1
         \item Task 2
         \item Task 3
-        \item Task 4
-        \item Task 5
-        \item Task 6
     \end{enumerate}
 
     \vskip 2mm
@@ -200,54 +143,18 @@ Hand inputted breakpoint:
         \item Deadline: 1 week %15 January, 2022
     \end{itemize}
 
-\vfill
-\textbf{Note:} Create a github repo from the start and populate it with your results step by step.
 \end{frame}
 
-\begin{frame}
-    \frametitle{Task 1: Regex}
-    Өөрөө зохиох эсвэл бэлэн текст интернетээс олж regex-ийн 
-    дараах үйлдлүүдийг ашиглан текстүүд гаргаж авах жишээнүүд үзүүл 
-    (нэг бүр дээр нь бус хамтад нь ашиглаж болно. Гэхдээ доорх бүх тэмдгээс ядаж 1 удаа ашиглаарай)
-
-    \begin{itemize}
-        \item {[a-zA-Z0-9], [a-z],[A-Z],[0-9]}
-        \item \textbackslash d, \textbackslash D, \textbackslash w, \textbackslash W, \textbackslash s
-        \item \^{}, \$, ?, *, +, .
-        \item \{m,n\}, \{,n\}, \{m,\}, \{n\}
-        \item Look behind, Look ahead, Negative look behind, Negative look ahead
-    \end{itemize}
-\end{frame}
 
 \begin{frame}
-    \frametitle{Task 2: Exception}
-    \begin{enumerate}
-        \item Generate array of 1000 random integers in numpy and create an array with only the negative even numbers.
-        \item Loop one by one through this array …
-        \item \ldots when negative & odd, then raise “odd error” and continue to next loop, 
-        \item \ldots when even but positive, raise “sign error” and continue to next loop \ldots
-        \item \ldots when “negative even”, then append your list. 
-    \end{enumerate}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Task 3: Debugging}
-    \begin{itemize}
-        \item Debugging гэж юу вэ?
-        \item Breakpoint – ийн ямар 3 төрөл (log message г.м) Vscode дээр байдаг вэ?
-        \item Debug-ийн step into, step over, stop out – ийн ялгааг тайлбарла 
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Task 4: Function arguments}
+    \frametitle{Task 1: Function arguments}
     Jupyter notebook дээр зөвхөн args, зөвхөн args=value, зөвхөн *args, 
     зөвхөн **kwargs аргументуудтай (4 тусдаа функц) болон эдгээрийн холимог 
     (2 функц) байгуулж, ажиллуулж үзүүл. Нийт 6 функц.
 \end{frame}
 
 \begin{frame}
-    \frametitle{Task 5: Class}
+    \frametitle{Task 2: Class}
     Create a bank deposit class which you can 
     \begin{itemize}
         \item withdraw money
@@ -267,7 +174,7 @@ Examples:
 \end{frame}
 
 \begin{frame}
-    \frametitle{Task 6: Module}   
+    \frametitle{Task 3: Module}   
 \tiny
     \begin{itemize}
         \item Өгсөн тоон list-ний нийлбэр, ялгавар, үржвэрийг олдог 3 тусдаа функц бүхий модуль файл үүсгэ. 

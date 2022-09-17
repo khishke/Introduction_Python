@@ -3,7 +3,6 @@ it is a module with two functions
 """
 import numpy as np
 
-
 def mmod_func(number):
     """
     multiple by two
