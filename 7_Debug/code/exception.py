@@ -1,6 +1,28 @@
 ## Exception
 randomList = [5,15.5,20,0,'a', 0, 2,40,51,0.2]
 
+# User defined exception
+class myStrangeError(Exception):
+    # do correction here
+    print("My strange error occurred!")
+    
+# a = 4
+a = '51'
+try:
+    if a > 5:
+        a = a + 100 
+        print("Result: {}".format(a))
+    else:
+        raise myStrangeError()
+except myStrangeError:
+    print("My strange error occurred!, so adding only 10")
+    a = a + 10
+    print("Result: {}".format(a))
+except:
+    print("Another error occurred!, so adding 1000")
+    a = int(a) + 1000
+    print("Result: {}".format(a))
+
 
 for entry in randomList:
     r = 1/int(entry)
@@ -12,7 +34,7 @@ for entry in randomList:
         print(r)
     except:
         # print("Warning! Not converting. Variable {} is of {} type".format(entry,type(entry)))
-        print("Warning! Using default val without converting.")
+        print("Entry is {}. Using default val without converting.".format(entry))
         r = 1
         print(r)
 

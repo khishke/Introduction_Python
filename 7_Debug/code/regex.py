@@ -1,4 +1,5 @@
 ## Regular expression
+# https://www.rexegg.com/regex-lookarounds.html - lookahead, behind
 import re
 
 # stata example
@@ -19,11 +20,17 @@ import re
 
 # findall - find all matches within the string
 string = 'hello 12, hi 8987. Howdy 34'
-pattern = '\d+' # find all numbers
+pattern = '\d+' # find all numbers      + *(greedy algorithm)
 result = re.findall(pattern, string) 
 print(result)
 
-re.findall('[D-F]', "LIFE is really fucking Cool DARDU") # find CAPITAL letters between D and F
+result2 = re.findall('\d{1,2}', string) 
+result2 = re.findall('\d{2}', string) 
+result3 = re.findall('\d{3}', string) 
+result1 = re.findall('\d{1}', string) 
+
+re.findall('[D-F]', "LIFE is really cool. Looking forward to it.") # find CAPITAL letters between D and F
+re.findall('[D-F]+', "LIFE is really cool. Looking forward to it.")
 
 # search – first match anywhere in string
 string = "My iPython is fun console of Python "
@@ -50,7 +57,7 @@ match.group()
 
 # lookahead, behind
 string = '39801 356, 2 102 11 is 11'
-pattern = '\s(\d{3})\s(\d{2})\s' # Three digit number followed by space followed by two digit number
+pattern = '\s(\d{3})\s(\d{2})\s' # Space, three digit numbers followed by space, followed by two digit number
 # match variable contains a Match object. 
 match = re.search(pattern, string) 
 
@@ -58,12 +65,7 @@ string = '39801 356, 2aa_adfd102 11 dlfjdk is 11'
 pattern = '(?<!\d)(\d{3})\s(\d{2})(?!\d)' # Three digit number followed by space followed by two digit number
 # match variable contains a Match object. 
 match = re.search(pattern, string) 
-
-string = '39801 356, 2aa_adfd102 11 dlfjdk is 11'
-pattern = '(?<!\d)(\d{3})\s(\d{2})(?!\d)' # Three digit number followed by space followed by two digit number
-# match variable contains a Match object. 
-match = re.search(pattern, string) 
-
+match
 
 # match - match at the beginning of string
 result = re.match("[0-9]{1,3}", "hi 12345 bhey 135456")
@@ -72,12 +74,12 @@ result.group()
 
 
 # split
-string = 'Twelve 12 Eighty nine 89.'
+string = 'Twelve 12, Eighty nine 89.'
 pattern = '\d+'
 result = re.split(pattern, string) 
 print(result)
 
-result = re.split("\s+", "  Baldan   Gombo") 
+result = re.split("\s+", "  Baldan   Gombo ") 
 print(result)
 
 result = re.split("\s", "  Baldan   Gombo") 
@@ -91,13 +93,6 @@ replace = ''
 new_string = re.sub(pattern, replace, string) 
 print(new_string)
 
-string = 'abc      12\
-de 23 \n f45      6'
-pattern = '\s+'
-replace = ' '
-new_string = re.sub(pattern, replace, string) 
-print(new_string)
-
 
 text = "Dorj Bat. He was born on 17th of February, 1995\
 Has got bachelor degree. Phone: 99779977, uses Mobicom. \
@@ -107,18 +102,36 @@ Lives with his wife and two children."
 
 
 citizenId = re.findall("\w{2,4}(?=\d{8})\d{8}",text) # YeYe EE
-citizenId = re.findall("\w{2,4}(?<=\w)\d{8}",text)   # YeYe EE
-region    = re.findall(r"(Khovd|Uvs|Zavkhan)",text)
+citizenId2 = re.findall("\w{2,4}\d{8}",text) # YeYe EE
+citizenId3 = re.findall("\w{2,4}(?<=\w)\d{8}",text)   # YeYe EE
+citizenId4 = re.findall("(?<=\w)\d{8}",text)   # YeYe EE
+region    = re.findall("(Khovd|Uvs|Zavkhan)",text)  # r"D:\sugarkhuu\s"
 mobileOperator = re.findall(r"(Mobicom|Unitel|Skytel|G-mobile)",text)
 mobile_number  = re.search("(?<=\s)\d{8}",text).group()
 bank           = re.findall("\s(\w+)\sbank",text)[0]
 nChild         = re.findall("\s(\w*)\schildren",text)
 
 
-number_map = dict(zip([99,88,96,98],
-                      ['Mobicom','Unitel','Skytel','G-mobile']))
-number_map[int(mobile_number[:2])]
 
+# difference between * and +
+text = 'abdeiuouf7erjoeupdfj'
+re.findall(r'[a-z]+\d+[a-z]+', text)
+text = 'abdeiuouf7dfdkfj7erjoeupdfj'
+re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+', text)  
+
+text = 'abdeiuouf77erjoeupdfj'
+re.findall(r'[a-z]+\d+[a-z]*\d+[a-z]+', text)  
+
+text = 'abdeiuouf77erjoeupdfj'
+re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+', text)  
+
+
+text = 'Ehner1Nuhur1Huuhed17'
+re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+\d*', text,re.IGNORECASE)
+text = 'Ehner1Nuhur1Huuhed12354'
+re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+\d+', text,re.IGNORECASE)
+text = 'Ehner1Nuhur1Huuhed'
+re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+\d+', text,re.IGNORECASE)
 
 
 # ?<= lookbehind, ?= lookahead

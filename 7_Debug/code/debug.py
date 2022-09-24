@@ -7,16 +7,22 @@
 
 # debug a function - example
 
-def func():
-    k = 7
+import pdb
+
+def func(input):
+    k = 7 + input
     h = 8 
-    print("hi")
+    # print("hi")
+    # print(k)
 
 for i in range(10):
     y = i + 10 
+    func(15)
     print(i)
+    # pdb.set_trace()
     if i >= 3:
         a = 1/(i-5)
+
 
 
 # func() # step into, step out - inside function
