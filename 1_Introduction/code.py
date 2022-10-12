@@ -16,7 +16,7 @@ print('a is: {} and b is {}'.format(a,b))
 5-9 # subtract
 5*5 # multiply
 5/8 # divide
-5**2 # power ^
+5**2 # power ^^^
 5**(1/2) # power
 
 # boolean
