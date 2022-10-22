@@ -7,20 +7,23 @@
 import pandas as pd
 import numpy as np
 
-pd.set_option('display.max_rows', 500)
-pd.set_option('display.max_columns', 500)
-pd.set_option('display.width', 1000)
+# pd.set_option('display.max_rows', 500)
+# pd.set_option('display.max_columns', 500)
+# pd.set_option('display.width', 1000) 
 
 # Pandas read examples:
 # https://www.datacamp.com/community/tutorials/importing-data-into-pandas
 
 # be careful with backward slash \
 
+# 
+# 
+df = pd.read_excel(r"D:\Documents\python\repo\Introduction_Python\3_Data_table\data\data.xlsx")
 import os
 os.getcwd() # get current working directory 
 os.chdir(r'3_Data_table')
 
-df = pd.read_excel("data\data.xlsx")
+df = pd.read_excel("data\data.xlsx") # //
 
 df.info()
 df.dtypes
@@ -33,7 +36,7 @@ df.columns
 df.index
 df['age']
 df['firstName'] # get firstname of all users
-
+df[['age','firstName']] 
 
 
 # iloc
@@ -46,12 +49,17 @@ df.loc[5:8,"lastName"]
 df.loc[5:8,("lastName","firstName")]
 
 df.set_index('firstName',drop=False,inplace=True) # ,
+df.set_index('firstName',inplace=True) # ,
+new_df = df.set_index('firstName',drop=False) # ,
+df.set_index('firstName',drop=False,inplace=True) # ,
 # df.index = df['firstName']
 df.loc["Gerel","lastName"]
+df.loc[["Gerel","Saran"],("lastName","firstName")]
 
 
 # filter
 df[df["age"]<27]
+df[~(df['age']<27)]
 df[~(df['age']<27)]['age']
 df[df["age"]<27][["firstName","lastName","salary","age"]] # df[df["age"]<27]["firstName","lastName","salary","age"]
 df[df["age"]>=27][["firstName","lastName","salary","age"]]
@@ -81,6 +89,7 @@ len(res.columns)
 res[('age','mean')]
 res['age']
 res.columns = ['agemax','agemean','salmax','salcount']
+res.index
 res.reset_index(inplace=True)
 
 
@@ -89,16 +98,21 @@ table = pd.pivot_table(df, values=['age','salary'], index=['gender'],
                     columns=['politicalView'], aggfunc=np.mean)
 print(table)
 table.to_excel('./result/pivot.xlsx')
+table.to_latex('./result/pivot.tex')
+
+table = pd.pivot_table(df, values=['age','salary'], index=['gender', 'politicalView'],
+                    aggfunc=np.mean)
 
 # sort
 df = df.sort_values(by="yearsInCompany", ascending=False)
+df.sort_values(by="yearsInCompany",inplace=True)
 
 df.sort_values(by="gender", inplace=True)
 df.sort_values(by=["gender","age"], inplace=True)
 
-df["name"] = np.arange(10)
+df["random_num"] = np.arange(10)
 df
-del df["name"]
+del df["random_num"]
 
 df.reset_index(drop=True,inplace=True)
 
@@ -111,6 +125,13 @@ df['age'].max()
 df['age'].min()
 df['gender'].unique() # array with unique elements
 df.values
+
+
+df = pd.DataFrame()
+df["first"] = []
+df["second"] = []
+df.loc[0] = ["Bat",15]
+df.loc[1] = ["Bat",15]
 
 
 # type conversion
@@ -145,13 +166,14 @@ df.loc[0] = ["Bat",15]
 df.loc[1] = ["Bat",15]
 
 
-df.rename(columns={'Name': 'Ner'}, inplace=True)
+df.rename(columns={'first': 'First'}, inplace=True)
 type(data)
 
-df.rename(columns={'Name': 'Ner', 'Age': 'Nas'}, inplace=True)
-
+df.rename(columns={'name': 'Ner', 'age': 'Nas'}, inplace=True)
+df.columns = ["Нэрс","Нас"]
 
 # saving to files
 df.to_csv('./result/my.csv')
-df.to_json('./result/my.json')
+df.to_json('./result/my.json', indent=4,force_ascii=False)
 df.to_excel('./result/my.xlsx')
+df.to_latex('./result/my.tex')

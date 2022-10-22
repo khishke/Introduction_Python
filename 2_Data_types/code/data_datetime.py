@@ -1,4 +1,5 @@
-import datetime #as dt # time, date, datetime
+import datetime 
+#as dt # time, date, datetime
 # from datetime import datetime 
 
 # date
@@ -19,7 +20,7 @@ timestamp = datetime.date.fromtimestamp(1326244364+24*60*60*2)
 timestamp = datetime.date.fromtimestamp(1)
 
 # time
-a = datetime.time(11, 34, 56)
+a = datetime.time(11, 34, 56, 99)
 print("hour =", a.hour)
 print("minute =", a.minute)
 print("second =", a.second)
@@ -48,8 +49,13 @@ t2 = datetime.timedelta(days = 4, hours = 11, minutes = 4, seconds = 54)
 t3 = t1 - t2
 
 # strptime https://www.w3schools.com/python/gloss_python_date_format_codes.asp
-my_dt = datetime.datetime.strptime('2017-01-22', "%Y-%m-%d") # convert string to datetime (strptime)
+
+mydate = '2017-01-22'
+my_dt = datetime.datetime.strptime(mydate, "%Y-%m-%d") # convert string to datetime (strptime)
 my_dt2 = datetime.datetime.strptime('2017/01/22', "%Y/%m/%d")
+my_dt2 = datetime.datetime.strptime('2017/01/12', "%Y/%d/%m")
+my_dt2 = datetime.datetime.strptime('2017/01/12', "%Y/%d/%m")
+my_dt2 = datetime.datetime.strptime('17/01/12', "%d/%y/%m")
 
 date_string = "21 June, 2018"
 print("date_string =", date_string)

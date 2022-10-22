@@ -10,8 +10,11 @@ b = np.ones(4) + 1
 
 2**a  # powers of 2
 a - b # difference 
-j = np.arange(5)
+j = np.arange(500)
 2**(j + 1) - j # power of two and subtract
+
+mm = np.array(([1,2],[3,4]))
+2**(mm + 1) - mm # power of two and subtract
 
 # basic matrices
 c = np.ones((3, 3))
@@ -20,7 +23,7 @@ c.dot(c) # matrix np.dot(c,c)
 np.zeros((2,3)) # matrix of zeros
 np.eye(4) # unit matrix
 np.eye(4,5) # unit matrix
-np.ones((3, 3, 3)) # higher dimension
+np.zeros((3, 3, 3)) # higher dimension
 
 # compare
 a = np.array([1, 2, 3, 4])
@@ -40,6 +43,9 @@ np.logical_and(a, b)
 # any or all
 a = np.zeros((100, 100))
 np.any(a != 0)
+a[0][0] = 1
+np.any(a != 0)
+np.any(a == 0)
 np.all(a == a)
 a = np.array([1, 2, 3, 2])
 b = np.array([2, 2, 3, 2])
@@ -54,7 +60,7 @@ c = np.array([6, 1, 4, 5])
 ((a <= b) & (b <= c)).all()
 ((a <= b) | (b <= c)).all()
 
-# length of 1
+# works with length of 1
 a = np.array([1])
 b = np.array([2])
 c = np.array([6])
@@ -80,10 +86,11 @@ np.sum(x)
 x.sum()
 
 x = np.array([[1,2,3], [3,4,8]])
-x.sum(axis=0) # columns 
+x.sum(axis=0) # columns, run through
 x.sum(axis=1) # rows
 
 x = np.random.rand(2, 2, 2)
+x = np.array([[[1,2,3], [3,4,8]],[[1,2,3], [3,4,8]]])
 
 x.sum(axis=0)  # first or last block
 x.sum(axis=1)  # up or down
@@ -100,7 +107,8 @@ a.T
 
 # tile and repeat
 
-np.tile(np.arange(0, 40, 10), (3,2))
+np.tile(np.arange(0, 40, 10), (3))
+a = np.tile(np.arange(0, 40, 10), (3,2))
 
 a = np.tile(np.arange(0, 40, 10), (3, 1)).T
 a
