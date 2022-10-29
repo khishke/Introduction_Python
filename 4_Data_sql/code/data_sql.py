@@ -6,14 +6,15 @@ import pandas as pd
 connection = psycopg2.connect(
         user = "postgres",
         password = "postgres",
-        host = "localhost", # 198.16.16.01, 127.0.0.1
+        host = "localhost", # 198.16.16.01, 127.0.0.1, www.prod.ogresearch.com
         port = "5432",
-        database = "mydata"
+        database = "week8"
     )
 
 cursor = connection.cursor()
-cursor.execute("SELECT * from mytable;")
+cursor.execute("SELECT * from test221029;")
 record = cursor.fetchall()
+# cursor.commit() - must when 
 
 # cursor.execute("Select * FROM mytable LIMIT 0")
 colnames = [desc[0] for desc in cursor.description]
@@ -48,10 +49,7 @@ connection.close()
 # ('hi', 'Temuge',	'Erdene');
 
 # INSERT INTO mytable
-# (id,
-# firstname,
-# lastname)
-# VALUES
-# (2, 'Khongorzul',	'Gantulga');
+# (id,firstname,lastname,citizenid,age)
+# VALUES (25, 'Khongorzul',	'Gantulga', 'UB95',22);
 
 
