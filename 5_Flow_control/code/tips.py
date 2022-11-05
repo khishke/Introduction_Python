@@ -11,7 +11,7 @@ for i in range(10):
 print(mlist)
 
 # one line
-mmlist = [i for i in range(20)]
+mmlist = [i*2 for i in range(20)]
 mmlist = [5 for i in range(10)]
 print(mmlist)
 
@@ -39,7 +39,7 @@ for i in range(10):
 print(mlist)
 
 # one line
-lst = [i if np.mod(i,2)==0 else i-1 for i in range(0,10)]
+lst = [i*2 if np.mod(i,2)==0 else (i-1)*2 for i in range(0,10)]
 print(lst)
 
 
@@ -48,11 +48,14 @@ print(lst)
 func = lambda a : a + 10
 func(15)
 
+lst = [lambda i: i*2 if np.mod(i,2)==0 else (i-1)*2 for i in range(0,10)]
+print(lst)
 
 # filter
 def pos(input1):
     return True if input1 > 0 else False
 
+res = filter(pos,[1,-10,3,-7,4,-9])
 res = list(filter(pos,[1,-10,3,-7,4,-9]))
 
 def neg(input1):
@@ -62,12 +65,10 @@ res = list(filter(neg,[1,-10,3,-7,4,-9]))
 
 # lambda in filter
 my_list = [1, 5, 4, 6, 8, 11, 3, 12]
-func = lambda x: (x%2 == 0)
-even_list = list(filter(func, my_list))
+even_list = list(filter(lambda x: (x%2 == 0), my_list))
 print(even_list)
 
-funcf = lambda x: (x%2 != 0)
-odd_list = list(filter(funcf, my_list))
+odd_list = list(filter(lambda x: (x%2 != 0), my_list))
 print(odd_list)
 
 # map
@@ -85,13 +86,10 @@ for i in list1:
 
 print(zip(list1, list2))
 
-for i in zip(list1, list2):
+for i in zip(list1, list2, list1):
     print(i)
+    print("-----------------")
 
-
-for i in list1:
-    for j in list2:
-        print(i,j)  
 
 # enumerate
 
@@ -104,3 +102,9 @@ for i, item in enumerate(list2):
     
 for count, value in enumerate(['Maralmaa','Gerel','Batdelger']):
     print(count, value)
+
+
+func_output = 23
+expected_output = 23
+
+assert func_output == expected_output

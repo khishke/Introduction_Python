@@ -43,7 +43,7 @@ else:
 
 # first valid and stop
 num = 1
-if num > 0:
+if num > 1:
     print("Positive number")
 elif num == 0:
     print("Zero")
@@ -63,8 +63,11 @@ if num >= 0:
 else:
     print("Negative number")
 
-
+### LOOP
 ### FOR
+
+# for x in range(15):
+#     print(x)
 
 for i in range(15):
     print(i)
@@ -76,47 +79,61 @@ for name in mylist:
 
 # external data
 df = pd.read_excel("5_Flow_control/data/data.xlsx")
+
+for row in df.iterrows():
+#    print(row[1])
+   print(type(row[1]))
+   print("row finished----------------")
+
 for index, row in df.iterrows():
    # print(row['firstName'], row['lastName'])
-   print("{}-{}".format(row['firstName'], row['lastName']))
+   print("{} {}".format(row['firstName'], row['lastName']))
 
 for colname in df.columns:
     print(colname)
+    print(df[colname])
+
+for name, values in df.iteritems():
+    print('{name}: {value}'.format(value=values[0],name=name))
+
+for column in df:
+    print(df[column])
 
 
-for i in range(15):
+for i in range(20):
     if i < 13: 
         if np.mod(i,2) == 0:
-            print(i)
+            print(i, 'Even')
         else:
-            print(i, ' Not even')
+            print(i, 'Odd')
     else:
+        print('Larger than 12', i)
         break # skip the rest
 
 for i in range(15):
-    if (i > 8) and (i < 12): # and = & or = |
+    if (i > 8) & (i < 12): # and = & or = |
         print(i, 'skipping')
         continue # skip this time
     else:
         if np.mod(i,2) == 0:
-            print(i)
+            print(i, 'Even')
         else:
-            print(i, ' Not even')    
+            print(i, 'Odd')    
 
     print('The number is either below 9 or above 11 !')
 
 for i in range(15):
 
-    if (i < 5) | (i > 8) or (i < 11): # or = |
+    if (i < 5) | (i > 8): # | (i < 11): # or = |
         print(i, 'skipping')
         continue # skip this time
     else:
         if np.mod(i,2) == 0:
-            print(i)
+            print(i, 'Even')
         else:
-            print(i, ' Not even')
+            print(i, 'Odd') 
 
-    print('The number is either below 5 or above 8 !')
+    print('The number is either below 5 or above 8!')
 
 
 for i in range(15):  
@@ -133,14 +150,15 @@ for item in mylist:
     if isinstance(item, str):
         print(item)
 
-short_list = []
+short_list_float = []
 for item in mylist:
     if isinstance(item, float):  # int, str, float
-        short_list.append(item)
+        short_list_float.append(item)
 
+short_list_int = []
 for item in mylist:
     if isinstance(item, int):
-        print(item)
+        short_list_int.append(item)
                 
 for item in mylist:
     if type(item) == int:
@@ -169,7 +187,7 @@ while i>0:
 i = 1    
 while i < 100:
     print(i)
-    i += 1 # i = i + 1 #
+    i += 1 # i = i + 1
     
 i = 1    
 while i < 100:
