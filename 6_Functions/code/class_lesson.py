@@ -34,7 +34,7 @@ print(iHotel.getInfo())  # getInfo method
 print(iHotel.__hidVar)   # private (hidden) variable with __ prefix
 print(iHotel.dispHid())  # see private variable through a method
 
-iHotel.setGuest(350)     # setGuest method
+iHotel.setGuest(380)     # setGuest method
 print(iHotel.ng)     # number of guest, variable
 print(iHotel.getGuest()) # number of guest, variable
 
@@ -50,9 +50,17 @@ print(iBig.__hidVar)   # private (hidden) variable with __ prefix
 print(iBig.dispHid())  # see private variable through a method
 
 iBig.setGuest(350)     # setGuest method
-print(iBig.nGuest)     # number of guest, variable
+print(iBig.ng)     # number of guest, variable
 
 iBig.setRoom(18)       # setRoom method
 iBig.setHall(2)        # setHall method
 print(iBig.getInfo())  
 print(iBig.getNumber())# total number of all
+
+# Additional example
+my_pol = Polygon(5)
+my_pol.inputSides()
+
+my_tri = Triangle()
+my_tri.findArea()
+my_tri.inputSides()

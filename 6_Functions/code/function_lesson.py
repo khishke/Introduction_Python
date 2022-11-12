@@ -1,4 +1,6 @@
 #%% Functions
+import pandas as pd
+import numpy as np 
 
 def myFunc(myInput):
     # Basic function
@@ -25,8 +27,8 @@ def two_times(number):
     
     return twice 
 
-def my_function(salary, age):
     # Prototype docstring
+def my_function(salary, age):
     """
     
     Purpose of the function is to estimate expected salary in two years
@@ -47,6 +49,20 @@ def my_function(salary, age):
     copyright @Py4Econ
     
     """
+    return salary*2
+
+# array as input
+
+mat = np.array([[1,2,3],[4,5,7]])
+df = pd.read_excel(r"6_Functions\code\muyu_data.xlsx")
+
+mat = df.values
+
+def my_function(mymatrix):
+    diff = np.eye(mymatrix.shape[0],mymatrix.shape[1])-mymatrix
+    diff_ = mymatrix*diff
+    return diff_
+
 
 def two_three_times_tuple(number):
     # multiple output as tuple
@@ -78,7 +94,7 @@ def aging(age=25, year = 93):
     return age_10, year_10
 
 def aging1(year,age=25):
-    # positional (keyword) and default arguments
+    # positional and default (keyword) arguments
     """
     """
     age_10 = age + 10
@@ -104,6 +120,7 @@ def aging2(year, year1, age=25,avar = 17):
     year_10 = year + 10
     return age_10, year_10, year1 +10, avar-5
 
+#*optionalinputs *yuchgjbln
 def aging_args(*args):
     #optional (or arbitrary) positional arguments
     print("hi")
@@ -124,6 +141,7 @@ def aging_args2(year, year1, age=25,avar = 17, *fun):   # (year, year1, *fun, ag
 def aging_kwargs(**kwargs):
     #optional (or arbitrary) keyword arguments
     print("hi")
+    print(kwargs)
     print(kwargs['numberChild'])
     print(kwargs['nkeys'])
 
@@ -156,19 +174,21 @@ print(aging2())       # error: must assign positional argument
 print(aging2(93,95))  # must assign positional argument
 print(aging_args(15,25,35)) # any arguments, should be accessed by position
 print(aging_args2(85,75,15,25,35,23,25)) # any arguments, should be accessed by position
-print(aging_kwargs(numberChild = 3, nkeys = 5)) # any keyword arguments
+print(aging_kwargs(numberChild = 3, nkeys = 5, muyu_arg = 10)) # any keyword arguments
 print(aging_kwargs2(nkeys=5)) # example of any keyword arguments
 print(aging_kwargs2(nbold=15)) # example of any keyword arguments
 
-## Scope of variables
-# local scope
-x = 20 # global by default
 
 def my_func(order=5):
     
     beleg = 5 # local by default 
     total = beleg + order
     return total
+
+## Scope of variables
+# local scope
+x = 20 # global by default
+y = 15
 
 def my_func1(order=5):
     
@@ -178,9 +198,10 @@ def my_func1(order=5):
 
 
 def my_func2(order=5):
-    global x
+    global x, y
     x = x + order
-    return x
+    y = y + 5
+    return x,y
 
 ## Files starts:
 a = 15

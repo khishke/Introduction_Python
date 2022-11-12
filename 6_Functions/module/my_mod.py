@@ -20,8 +20,12 @@ yy = 10
 
 if __name__ == "__main__":
     print("I am inside")
-    print("I am inside 12")
-    print(mmod_funcA(18))
+    input = 18
+    res = mmod_funcA(input)
+    print(res)
+    print(res == 36)
+    assert res == input*2
+
     # https://www.geeksforgeeks.org/what-does-the-if-__name__-__main__-do/
     # https://realpython.com/python-main-function/
     # https://stackoverflow.com/questions/419163/what-does-if-name-main-do
