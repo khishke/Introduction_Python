@@ -54,6 +54,9 @@ match.groups()
 pattern = '\d{3}\s\d{2}'
 match = re.search(pattern, string) 
 match.group()
+pattern = '(\d{3})(\s)(\d{2})'
+match = re.search(pattern, string) 
+match.group(3)
 
 # lookahead, behind
 string = '39801 356, 2 102 11 is 11'
@@ -67,6 +70,12 @@ pattern = '(?<!\d)(\d{3})\s(\d{2})(?!\d)' # Three digit number followed by space
 match = re.search(pattern, string) 
 match
 
+string = '39801 356, 2aa_adfd102 11 dlfjdk is 11 153 22'
+pattern = '(?<!\d)(\d{3})\s(\d{2})(?!\d)' 
+match = re.findall(pattern, string) 
+match
+
+
 # match - match at the beginning of string
 result = re.match("[0-9]{1,3}", "hi 12345 bhey 135456")
 result = re.match("[0-9]{1,3}", "12345 dfdf 456")
@@ -74,8 +83,8 @@ result.group()
 
 
 # split
-string = 'Twelve 12, Eighty nine 89.'
-pattern = '\d+'
+string = 'Twelve 121563245, Eighty 1 nine 89.'
+pattern = '\d{}'
 result = re.split(pattern, string) 
 print(result)
 
@@ -104,7 +113,9 @@ Lives with his wife and two children."
 citizenId = re.findall("\w{2,4}(?=\d{8})\d{8}",text) # YeYe EE
 citizenId2 = re.findall("\w{2,4}\d{8}",text) # YeYe EE
 citizenId3 = re.findall("\w{2,4}(?<=\w)\d{8}",text)   # YeYe EE
+# just numbers in ID
 citizenId4 = re.findall("(?<=\w)\d{8}",text)   # YeYe EE
+
 region    = re.findall("(Khovd|Uvs|Zavkhan)",text)  # r"D:\sugarkhuu\s"
 mobileOperator = re.findall(r"(Mobicom|Unitel|Skytel|G-mobile)",text)
 mobile_number  = re.search("(?<=\s)\d{8}",text).group()
@@ -114,24 +125,15 @@ nChild         = re.findall("\s(\w*)\schildren",text)
 
 
 # difference between * and +
-text = 'abdeiuouf7erjoeupdfj'
-re.findall(r'[a-z]+\d+[a-z]+', text)
-text = 'abdeiuouf7dfdkfj7erjoeupdfj'
-re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+', text)  
+text = 'ab ab17'
+re.findall(r'ab\d+', text)
+re.findall(r'ab\d*', text)
 
-text = 'abdeiuouf77erjoeupdfj'
-re.findall(r'[a-z]+\d+[a-z]*\d+[a-z]+', text)  
-
-text = 'abdeiuouf77erjoeupdfj'
-re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+', text)  
 
 
 text = 'Ehner1Nuhur1Huuhed17'
 re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+\d*', text,re.IGNORECASE)
-text = 'Ehner1Nuhur1Huuhed12354'
-re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+\d+', text,re.IGNORECASE)
-text = 'Ehner1Nuhur1Huuhed'
-re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+\d+', text,re.IGNORECASE)
+re.findall(r'[a-z]+\d+[a-z]+\d+[a-z]+\d*', text)
 
 
 # ?<= lookbehind, ?= lookahead

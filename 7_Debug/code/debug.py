@@ -12,14 +12,15 @@ import pdb
 def func(input):
     k = 7 + input
     h = 8 
+    # a = 1/(input-input)
     # print("hi")
     # print(k)
 
-for i in range(10):
+for i in range(10,100):
     y = i + 10 
     func(15)
     print(i)
-    # pdb.set_trace()
+    # pdb.set_trace() # matlab : keyboard
     if i >= 3:
         a = 1/(i-5)
 
