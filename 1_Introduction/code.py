@@ -3,7 +3,7 @@
 print("Test")
 print('Testing 2') # it is an example
 a = 15
-print('a is: ', a)
+print('a is:',a)
 5+3
 
 # it is also an example
@@ -29,10 +29,10 @@ print(my_condition1)
 c = 'hello'
 cc = "world"
 
-c + cc
+c + " " + cc + " " + str(5.5)
 
-# m = input("Enter a number: ")
-# print("You entered: " + str(m) + '. Done!')
+m = input("Enter a number: ") 
+print("You entered: " + str(m) + '. Done!')
 
 "a"+"5"
 a = "25"

@@ -60,8 +60,9 @@ my_list_str[2] = 'mungun'
 
 # tuple - just list, but immutable
 my_tuple = (1,2,3)
-tuple(list(my_tuple))
-# my_tuple[2] = 10 ctrl + /
+my_list = list(my_tuple)
+tuple(my_list)
+my_tuple[2] = 10 
 
 
 ############### SET ###############
@@ -78,6 +79,9 @@ my_set.discard(4) # no error if missing
 # my_set.remove(4)  # error if missing
 my_set.remove(5)  # error if missing
 my_set.pop() # drop first, show it on console
+
+my_list = [1,1,1,1,2,2,3]
+my_set = set(my_list)
 
 
 # traditional set operations
@@ -116,8 +120,11 @@ my_husband['address'] = 'Downtown'
 
 person2 = {"name": "Bold", "age": 50,"country": "Mongolia","city": "Darkhan"}
 big_dict = {"Younger": my_husband, "Older": person2}
+big_dict['Younger']
 big_dict['Younger']['name']
 
+my_husband.keys()
+my_husband.values()
 print(list(sorted(my_husband.keys())))
 print(list(sorted(my_husband.values()))) # error example
 print(list(my_husband.values()))
