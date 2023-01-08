@@ -33,7 +33,10 @@ a == b
 a > b
 np.array_equal(a, b)
 np.array_equal(a, c) # np.all(a == c)
-
+np.all(a == b)
+np.all(a == c)
+(a == c).all()
+(a == b).any()
 
 a = np.array([1, 1, 0, 0], dtype=bool)
 b = np.array([1, 0, 1, 0], dtype=bool)
@@ -64,8 +67,8 @@ c = np.array([6, 1, 4, 5])
 a = np.array([1])
 b = np.array([2])
 c = np.array([6])
-((a <= b) and (b >= c)).all()
-((a <= b) or (b <= c)).all()
+((a <= b) and (b >= c))
+((a <= b) or (b <= c))
 
 
 # universal functions
@@ -96,13 +99,13 @@ x.sum(axis=0)  # first or last block
 x.sum(axis=1)  # up or down
 x.sum(axis=2)  # left or right
 
-
 x.sum(axis=2)[0, 1]     
 x[0, 1, :].sum() 
 
 
 # reshape or broadcast
 a = np.arange(9).reshape(3, 3)
+a = np.arange(36).reshape(4, 9)
 a.T
 
 # tile and repeat
@@ -123,11 +126,13 @@ a.shape
 a = a[:, np.newaxis]  # adds a new axis -> 2D array
 a.shape
 a
-
+a = a[:, np.newaxis, np.newaxis]
 
 A = np.arange(12).reshape(3,4)
-b = np.repeat(A[:,:,np.newaxis], 2, axis=-1) # Using repeat to add a new dimension at the end
-b = np.repeat(A[:,:,np.newaxis], 2, axis=1) # Using repeat to add a new dimension at the end
+b = np.repeat(A, 2, axis=0) 
+b = np.repeat(A[:,:,np.newaxis], 2, axis=2) 
+b = np.repeat(A[:,:,np.newaxis], 2, axis=1)
+b = np.repeat(A[np.newaxis,:,:], 2, axis=0)
 
 np.tile(A, (2,1,1))  # add a new dimension at the beginning
 np.repeat(A[None,:,:], 2, axis=0) # add a new dimension at the beginning
@@ -143,6 +148,7 @@ a.flatten()
 a.ravel()
 a.T # row wise
 a.T.ravel() # row wise
+a.T.flatten() # row wise
 
 np.array([[1, 2, 3], [4, 5, 6]]).flatten()
 
@@ -155,15 +161,16 @@ np.squeeze(x)
 np.squeeze(x).shape
 
 # linspace
-b = np.linspace(0.0, 10.0, num=100)
+b = np.linspace(0.0, 10.0, num=101)
 np.sin(b)
 
 # sort
 a = np.array([4, 3, 1, 2])
-a.sort(axis=0)
+a.sort()
 a = np.array([4, 3, 1, 2])
 j = np.argsort(a)
 a[j] # by sorted index
+a[np.array([1,0,1,0,1,2])]
 
 # statistic
 x = np.array([1, 2, 3, 1])
@@ -203,6 +210,7 @@ B = np.array([[1, 1], [2, 1], [3, -3]])
 C = A.dot(B)
 print(A.transpose())
 
+# scipy, tensor
 
 # https://scipy-lectures.org/intro/numpy/operations.html
 # https://numpy.org/doc/stable/user/quickstart.html

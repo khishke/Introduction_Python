@@ -16,13 +16,13 @@ import numpy as np
 
 # be careful with backward slash \
 
-# 
-# 
-df = pd.read_excel(r"D:\Documents\python\repo\Introduction_Python\3_Data_table\data\data.xlsx")
+# long
+df = pd.read_excel(r"3_Data_table\data\data.xlsx")
+
+# short
 import os
 os.getcwd() # get current working directory 
 os.chdir(r'3_Data_table')
-
 df = pd.read_excel("data\data.xlsx") # //
 
 df.info()
@@ -124,14 +124,15 @@ df['age'].sum()
 df['age'].max()
 df['age'].min()
 df['gender'].unique() # array with unique elements
+df['politicalView'].unique() # array with unique elements
 df.values
 
-
+# generate data
 df = pd.DataFrame()
 df["first"] = []
 df["second"] = []
 df.loc[0] = ["Bat",15]
-df.loc[1] = ["Bat",15]
+df.loc[1] = ["Suren",15]
 
 
 # type conversion
@@ -152,9 +153,6 @@ df.info()
 df['Date2'] = pd.to_datetime(df['Date2'],format="%Y%m%d")
 # df['Date'] = df['Date'].astype('datetime64[ns]')
 
-# create pandas df
-data = {'Name': ['Tom', 'Joseph', 'Krish', 'John'], 'Age': [20, 21, 19, 18]}  
-df = pd.DataFrame(data)  
 
 data = {'Name': [], 'Age': []} 
 df = pd.DataFrame(data) 
@@ -166,10 +164,10 @@ df.loc[0] = ["Bat",15]
 df.loc[1] = ["Bat",15]
 
 
-df.rename(columns={'first': 'First'}, inplace=True)
+df.rename(columns={'name': 'Name'}, inplace=True)
 type(data)
 
-df.rename(columns={'name': 'Ner', 'age': 'Nas'}, inplace=True)
+df.rename(columns={'Name': 'Ner', 'age': 'Nas'}, inplace=True)
 df.columns = ["Нэрс","Нас"]
 
 # saving to files
