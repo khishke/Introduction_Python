@@ -43,7 +43,7 @@ else:
 
 # first valid and stop
 num = 1
-if num > 1:
+if num > 0:  #1
     print("Positive number")
 elif num == 0:
     print("Zero")
@@ -81,23 +81,23 @@ for name in mylist:
 df = pd.read_excel("5_Flow_control/data/data.xlsx")
 
 for row in df.iterrows():
-#    print(row[1])
-   print(type(row[1]))
+   print(row[1])
    print("row finished----------------")
 
 for index, row in df.iterrows():
    # print(row['firstName'], row['lastName'])
-   print("{} {}".format(row['firstName'], row['lastName']))
+   print("{} and {}".format(row['firstName'], row['lastName']))
 
 for colname in df.columns:
     print(colname)
-    print(df[colname])
+    # print(df[colname])
 
+# column loop
 for name, values in df.iteritems():
     print('{name}: {value}'.format(value=values[0],name=name))
 
 for column in df:
-    print(df[column])
+    print(column)
 
 
 for i in range(20):
@@ -107,7 +107,7 @@ for i in range(20):
         else:
             print(i, 'Odd')
     else:
-        print('Larger than 12', i)
+        print('Larger than 12:', i)
         break # skip the rest
 
 for i in range(15):
@@ -133,7 +133,7 @@ for i in range(15):
         else:
             print(i, 'Odd') 
 
-    print('The number is either below 5 or above 8!')
+    print('The number is either between 5 and 8!')
 
 
 for i in range(15):  
@@ -144,16 +144,16 @@ for i in range(15):
         print("hi")
 
 
-mylist = [5.2,10,45,"Bold",54,47,'Chimeg']
+mylist = [5.2,10,45,"Bold",54,47,'Chimeg','15']
 
 for item in mylist:
     if isinstance(item, str):
         print(item)
 
-short_list_float = []
+list_float = []
 for item in mylist:
     if isinstance(item, float):  # int, str, float
-        short_list_float.append(item)
+        list_float.append(item)
 
 short_list_int = []
 for item in mylist:
@@ -169,13 +169,6 @@ short_list = [1,2,5,15]
 for i in range(10):
     if i in short_list:
         print(i)
-
-# Timing
-# a = np.arange(10000)
-# # timeit a + 1  
-
-# l = range(10000)
-# # %timeit [i+1 for i in l] 
 
 # WHILE
 
@@ -200,9 +193,7 @@ while i > 1:
     i /= 2
 
 
-i = 10    
+i = 100    
 while i > 1:
     print(i)
     i -= 2
-
-# merge strings and loop

@@ -8,12 +8,10 @@ import numpy as np
 mlist = [] 
 for i in range(10):
     mlist.append(i)
-print(mlist)
 
 # one line
-mmlist = [i*2 for i in range(20)]
-mmlist = [5 for i in range(10)]
-print(mmlist)
+mmlist = [i for i in range(10)]
+mmlist = [i**2+100 for i in range(20)]
 
 # if
 status = False
@@ -39,7 +37,7 @@ for i in range(10):
 print(mlist)
 
 # one line
-lst = [i*2 if np.mod(i,2)==0 else (i-1)*2 for i in range(0,10)]
+lst = [i if np.mod(i,2)==0 else i-1 for i in range(0,10)]
 print(lst)
 
 
@@ -48,7 +46,7 @@ print(lst)
 func = lambda a : a + 10
 func(15)
 
-lst = [lambda i: i*2 if np.mod(i,2)==0 else (i-1)*2 for i in range(0,10)]
+lst = [i*2 if np.mod(i,2)==0 else (i-1)*2 for i in range(0,10)]
 print(lst)
 
 # filter
@@ -86,7 +84,7 @@ for i in list1:
 
 print(zip(list1, list2))
 
-for i in zip(list1, list2, list1):
+for i in zip(list1, list2):
     print(i)
     print("-----------------")
 
@@ -104,7 +102,8 @@ for count, value in enumerate(['Maralmaa','Gerel','Batdelger']):
     print(count, value)
 
 
-func_output = 23
+# assert
+func_output = (lambda x : x*2 + 18)(5)
 expected_output = 23
 
 assert func_output == expected_output
