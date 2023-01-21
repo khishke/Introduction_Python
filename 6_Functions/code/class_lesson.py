@@ -58,9 +58,13 @@ print(iBig.getInfo())
 print(iBig.getNumber())# total number of all
 
 # Additional example
+
+from class_example import *
+
 my_pol = Polygon(5)
 my_pol.inputSides()
+my_pol.dispSides()
 
 my_tri = Triangle()
-my_tri.findArea()
 my_tri.inputSides()
+my_tri.findArea()

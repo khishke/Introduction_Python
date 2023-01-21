@@ -52,17 +52,13 @@ def my_function(salary, age):
     return salary*2
 
 # array as input
-
-mat = np.array([[1,2,3],[4,5,7]])
 df = pd.read_excel(r"6_Functions\code\muyu_data.xlsx")
-
 mat = df.values
-
 def my_function(mymatrix):
-    diff = np.eye(mymatrix.shape[0],mymatrix.shape[1])-mymatrix
+    diff = np.eye(mymatrix.shape[0],mymatrix.shape[1])-mymatrix   # subtract a matrix from a unit matrix
     diff_ = mymatrix*diff
     return diff_
-
+my_function(mat)
 
 def two_three_times_tuple(number):
     # multiple output as tuple
@@ -173,7 +169,10 @@ print(aging1(5))      # must assign positional argument
 print(aging2())       # error: must assign positional argument
 print(aging2(93,95))  # must assign positional argument
 print(aging_args(15,25,35)) # any arguments, should be accessed by position
+print(aging_args(15))
+print(aging_args())
 print(aging_args2(85,75,15,25,35,23,25)) # any arguments, should be accessed by position
+print(aging_args2(85,75,15,25))
 print(aging_kwargs(numberChild = 3, nkeys = 5, muyu_arg = 10)) # any keyword arguments
 print(aging_kwargs2(nkeys=5)) # example of any keyword arguments
 print(aging_kwargs2(nbold=15)) # example of any keyword arguments

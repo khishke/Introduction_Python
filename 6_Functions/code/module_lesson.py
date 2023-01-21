@@ -18,17 +18,16 @@ m_dir = r"D:\\Documents\\python\\repo\\Introduction_Python\6_Functions"
 # Path
 import sys # system parameters
 print(sys.path) # all folders in path 
-sys.path.append(r"D:\\Documents\\python\\repo\\Introduction_Python\6_Functions\module")
-sys.path.append(m_dir + os.sep + 'module') #  os.sep = \ add folder to path m_dir\\module.
+# sys.path.append(r"D:\\Documents\\python\\repo\\Introduction_Python\6_Functions\module")
+sys.path.append(m_dir + os.sep + 'module') #  os.sep = \ add folder to path m_dir\\module. mdir/module
 print(sys.path) # all folders in path 
 sys.path.remove(m_dir + os.sep + 'module') # remove folder from path
-
 sys.path.append(m_dir + os.sep + 'module') # add folder to path
 
 ## add path permanently
-import site
-site.addsitedir(r'D:\\Documents\\python\\repo\\Introduction_Python\6_Functions\module')
-sys.path.remove(r'D:\\Documents\\python\\repo\\Introduction_Python\\6_Functions\\module') # remove folder from path
+# import site
+# site.addsitedir(r'D:\\Documents\\python\\repo\\Introduction_Python\6_Functions\module')
+# sys.path.remove(r'D:\\Documents\\python\\repo\\Introduction_Python\\6_Functions\\module') # remove folder from path
 
 # import
 import my_mod
