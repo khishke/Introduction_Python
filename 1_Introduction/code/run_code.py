@@ -27,9 +27,38 @@ print("say hi")
 print("hi")
 
 # To take the input from the user
+num_sqrt = num ** 0.5 5-0
+
+12-8
+
+6-2
+
+print("hi")
+
+# To take the input from the user
 num_sqrt = num ** 0.5 
 
 
 num_sqrt = num ** 0.5   
 
-6
+6+2
+
+#khishke
+
+##bi ym nemsen#
+
+#wecandothatta
+
+5-0
+
+12-8
+
+6-2
+
+print("hi")
+
+# To take the input from the user
+num_sqrt = num ** 0.5 
+
+247+678
+
