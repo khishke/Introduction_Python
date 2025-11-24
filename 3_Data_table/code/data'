@@ -1,29 +1,20 @@
-# add row sum
-# add column sum
-# unique
-
-
-# Pandas
 import pandas as pd
 import numpy as np
 
-# pd.set_option('display.max_rows', 500)
-# pd.set_option('display.max_columns', 500)
-# pd.set_option('display.width', 1000) 
+# Excel файлны зам
+file_path = "/Users/aaa/Desktop/python/Introduction_Python-1/3_Data_table/data/data.xlsx"
 
-# Pandas read examples:
-# https://www.datacamp.com/community/tutorials/importing-data-into-pandas
+# Excel унших
+df = pd.read_excel(file_path, engine='openpyxl')
 
-# be careful with backward slash \
-
-# long
-df = pd.read_excel(z/Users/aaa/Desktop/python/Introduction_Python-1/3_Data_table/data/data.xlsx\)
+# Мэдээлэл харах
+print(df.head())
+print(df.info())
 
 # short
 import os
 os.getcwd() # get current working directory 
-os.chdir(r'3_Data_table')
-df = pd.read_excel("data\data.xlsx") # //
+df = pd.read_excel("data/data.xlsx") # //
 
 df.info()
 df.dtypes
@@ -38,7 +29,6 @@ df['age']
 df['firstName'] # get firstname of all users
 df[['age','firstName']] 
 
-
 # iloc
 df.iloc[2,1]
 df.iloc[2:5,1:3]
@@ -48,9 +38,15 @@ df.loc[5,"lastName"]
 df.loc[5:8,"lastName"]
 df.loc[5:8,("lastName","firstName")]
 
+print(df)
+print(df.head())
+print(df.index)
+
+df.reset_index(inplace=True)
 df.set_index('firstName',drop=False,inplace=True) # ,
 df.set_index('firstName',inplace=True) # ,
 new_df = df.set_index('firstName',drop=False) # ,
+df.reset_index(inplace=True)
 df.set_index('firstName',drop=False,inplace=True) # ,
 # df.index = df['firstName']
 df.loc["Gerel","lastName"]
@@ -59,6 +55,7 @@ df.loc[["Gerel","Saran"],("lastName","firstName")]
 
 # filter
 df[df["age"]<27]
+print(df)
 df[~(df['age']<27)]
 df[~(df['age']<27)]['age']
 df[df["age"]<27][["firstName","lastName","salary","age"]] # df[df["age"]<27]["firstName","lastName","salary","age"]
@@ -82,8 +79,11 @@ df.groupby(['gender','politicalView'])[['age','salary']].max()
 # df.groupby('A').agg({'B': ['min', 'max'], 'C': 'sum'})
 res = df.groupby(['gender','politicalView']).agg({'age': ["mean","max"], 'salary': ["max","count"]})
 
-res = df.groupby(['gender','politicalView']) \
-        .agg({'age': ["mean","max"], 'salary': ["max","count"]})
+res = (
+    df.groupby(['gender','politicalView'])
+      .agg({'age': ["mean","max"], 'salary': ["max","count"]})
+)
+
 res.columns
 len(res.columns)
 res[('age','mean')]
@@ -91,12 +91,15 @@ res['age']
 res.columns = ['agemax','agemean','salmax','salcount']
 res.index
 res.reset_index(inplace=True)
+print(res)
 
 
 # pivot table 
 table = pd.pivot_table(df, values=['age','salary'], index=['gender'],
                     columns=['politicalView'], aggfunc=np.mean)
 print(table)
+import os
+os.makedirs("result", exist_ok=True)
 table.to_excel('./result/pivot.xlsx')
 table.to_latex('./result/pivot.tex')
 
@@ -129,6 +132,7 @@ df.values
 
 # generate data
 df = pd.DataFrame()
+print(df)
 df["first"] = []
 df["second"] = []
 df.loc[0] = ["Bat",15]
@@ -136,6 +140,7 @@ df.loc[1] = ["Suren",15]
 
 
 # type conversion
+import pandas as pd
 data = {'Salary':[1000, 2222, 3321, 4414, 5151],
        'Name': ['Pete', 'Steve',
                    'Brian',
@@ -147,6 +152,7 @@ data = {'Salary':[1000, 2222, 3321, 4414, 5151],
        'Date2': [20120902, 20130413, 20140921, 20140321,
                 20140321]}
 df = pd.DataFrame(data)
+df.head()
 df.info()
 df['Date'] = pd.to_datetime(df['Date'])
 df.info()

@@ -79,6 +79,7 @@ my_set.discard(4) # no error if missing
 # my_set.remove(4)  # error if missing
 my_set.remove(5)  # error if missing
 my_set.pop() # drop first, show it on console
+print(my_set)
 
 my_list = [1,1,1,1,2,2,3]
 my_set = set(my_list)

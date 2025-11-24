@@ -1,0 +1,20 @@
+﻿product_id,product_name,category,unit_price,stock_qty
+100,iPhone 15,Electronics,2260961,21
+101,Samsung S23,Electronics,963180,201
+102,MacBook Air,Electronics,105707,229
+103,Dell XPS,Electronics,1363163,20
+104,Sony Headphones,Electronics,738584,138
+105,iPad 10,Electronics,123294,132
+106,Logitech Mouse,Electronics,3377703,211
+107,Nike Shoes,Fashion,1863344,29
+108,Adidas Hoodie,Fashion,2578678,279
+109,Leather Jacket,Fashion,2920523,42
+110,Jeans Denim,Fashion,2836721,127
+111,Cap Classic,Fashion,1330762,125
+112,Scarf Wool,Fashion,2248951,224
+113,Coffee Arabica,Grocery,1414806,208
+114,Tea Black,Grocery,1415889,258
+115,Sugar 1kg,Grocery,3093835,76
+116,Rice 5kg,Grocery,3602967,57
+117,Chocolate Bar,Grocery,2054615,207
+118,Milk 1L,Grocery,3310018,136

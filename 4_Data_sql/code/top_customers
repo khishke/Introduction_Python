@@ -1,0 +1,117 @@
+
+import psycopg2
+
+# -----------------------------
+# 1. PostgreSQL-т холбогдох
+# -----------------------------
+connection = psycopg2.connect(
+    host="localhost",
+    database="postgres",   # таны баазын нэр
+    user="postgres",
+    password="postgres",
+    port="5432"
+)
+
+cursor = connection.cursor()
+print("Connected to database:", connection.get_dsn_parameters()["dbname"])
+
+# -----------------------------
+# 2. CREATE TABLE - хүснэгтүүд үүсгэх
+# -----------------------------
+create_tables_query = """
+CREATE TABLE IF NOT EXISTS invoices (
+    invoice_id      INT PRIMARY KEY,
+    customer_id     INT REFERENCES customers(customer_id),
+    invoice_date    DATE,
+    status          VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS invoice_items (
+    item_id     INT PRIMARY KEY,
+    invoice_id  INT REFERENCES invoices(invoice_id),
+    product_id  INT REFERENCES products(product_id),
+    quantity    INT,
+    line_total  NUMERIC(12,2)
+);
+
+CREATE TABLE IF NOT EXISTS payments (
+    payment_id      INT PRIMARY KEY,
+    invoice_id      INT REFERENCES invoices(invoice_id),
+    amount          NUMERIC(12,2),
+    payment_date    DATE,
+    method          VARCHAR(20)
+);
+"""
+
+cursor.execute(create_tables_query)
+connection.commit()
+print("Tables created successfully.")
+
+# -----------------------------
+# 3. COUNT queries ажиллуулах
+# -----------------------------
+count_queries = [
+    "SELECT COUNT(*) FROM customers;",
+    "SELECT COUNT(*) FROM products;",
+    "SELECT COUNT(*) FROM invoices;",
+    "SELECT COUNT(*) FROM invoice_items;",
+    "SELECT COUNT(*) FROM payments;"
+]
+
+print("\nRow counts:")
+for q in count_queries:
+    cursor.execute(q)
+    count = cursor.fetchone()[0]
+    print(q, "→", count)
+
+# -----------------------------
+# 4. Top 10 customers query
+# -----------------------------
+top_customers_query = """
+SELECT 
+    c.customer_id,
+    c.fullname,
+    COUNT(i.invoice_id) AS total_orders,
+    SUM(ii.line_total) AS total_spent
+FROM customers c
+JOIN invoices i ON c.customer_id = i.customer_id
+JOIN invoice_items ii ON i.invoice_id = ii.invoice_id
+GROUP BY c.customer_id, c.fullname
+ORDER BY total_spent DESC
+LIMIT 10;
+"""
+
+print("\nTop 10 customers:")
+cursor.execute(top_customers_query)
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+
+# -----------------------------
+# 5. Sample rows LIMIT 5
+# -----------------------------
+print("\nSample customers:")
+cursor.execute("SELECT * FROM customers LIMIT 5;")
+print(cursor.fetchall())
+
+print("\nSample invoices:")
+cursor.execute("SELECT * FROM invoices LIMIT 5;")
+print(cursor.fetchall())
+
+print("\nSample invoice_items:")
+cursor.execute("SELECT * FROM invoice_items LIMIT 5;")
+print(cursor.fetchall())
+
+# -----------------------------
+# 6. Одоогийн database шалгах
+# -----------------------------
+cursor.execute("SELECT current_database();")
+print("\nCurrent database:", cursor.fetchone()[0])
+
+# -----------------------------
+# 7. Холболтыг хаах
+# -----------------------------
+cursor.close()
+connection.close()
+print("\nConnection closed.")
